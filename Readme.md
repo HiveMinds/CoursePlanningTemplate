@@ -4,14 +4,9 @@ Have installed TexWorks, or Texmake and MikTex
 
 ## How to use
 
-Create the pdf of your planning(=compile) by:
-
-0. Open Command Prompt (start>type: cmd>enter
-1. Browse to this directory (that contains the main.tex) using cd
-2. Enter: pdflatex --enable-write18 -interaction=nonstopmode main.tex
-
+Create the pdf of your planning(=compile) by: running/double clicking the `buildme.vbs` file.
 That will automatically build the pdf and generate a list of taskwarrior commands that allow you to instantly enter all the tasks of this planning into your agenda.
 
 ## TODO
 
-Create a clickable vbs script called "buildPdf.vbs" that automates opening cmd and entering the build command.
+Fix `CommandScripts.vbs` so that users don't have to use python.
