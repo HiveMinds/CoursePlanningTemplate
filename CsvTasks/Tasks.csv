@@ -1,0 +1,23 @@
+Nr.,Cal,tw,Topic,Available,Due,Source due,Weight,Source weight 
+W1Ex.1,,,Correlation,,2019-09-05,own planning,0,0 
+W1Ex.2,,,Advanced correlation,,2019-09-06,Own planning,0,0 
+As.1,,,Least Squares,,2019-09-17T17:30,Assignment,16.6\%,Study guide 
+W2Ex1,,,Doppler,,2019-09-12,Own planning,0,0 
+W2Ex2,,,Sat altimeter,,2019-09-13,Own Planning,0,0 
+W2Ex3,,,Relativity,,2019-09-13,Own Planning,0,0 
+W3Ex1,,,Sat nav,,2019-09-16,Own Planning,0,0 
+W3As.2,,,GPS dynam. params,2019-09-18,2019-10-08,Course sched,16.6\%,Study guide 
+W4Ex1,,,Reference sys trans,,2019-09-23,Own Planning,0,0 
+W4Ex2,,,Polar motion,,2019-09-23,Own Planning,0,0 
+W4Ex3,,,Potential Theory sphere harmonies,,2019-09-23,Own Planning,0,0 
+W4Ex4,,,Geodetic vs Carthesian coordinates,,2019-09-23,Own Planning,0,0 
+W5Ex1,,,Min. Constraint Problem,,2019-09-30,Own Planning,0,0 
+W5Ex2,,,Min. Constraint Problem,,2019-09-30,Own Planning,0,0 
+W5Ex3,,,Estim. Init. State Vector,,2019-09-30,Own Planning,0,0 
+W6Ex1,,,Kalman in simple Dyn. model,,2019-10-07,Own Planning,0,0 
+W6Ex2,,,Derive Kalman gain matrix,,2019-10-07,Own Planning,0,0 
+W6Ex3,,,Storage issues in Kalman gain matr.,,2019-10-07,Own Planning,0,0 
+W6Ex4,,,Variational Issues,,2019-10-07,Own Planning,0,0 
+W6As3,,,Kalman filter,,2019-10-18,Course Sched,16.6,Study Guide 
+W7Ex1,,,Exam Sample Questions,,2019-10-14,Own Planning,0,0 
+W8Ex1,,,Old Exam Questions,,2019-10-21,Own Planning,0,0
