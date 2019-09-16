@@ -1,19 +1,37 @@
 ' This script assumes the following columns in the .csv file:
 ' Nr.,Cal,tw,Topic,Available,Due,Source due,Weight,Source weight 
 
-projectSubCode="uni.sse."
+
 
 ' Get the path of the current (executing) script
 scriptDir = CreateObject("Scripting.FileSystemObject").GetParentFolderName(WScript.ScriptFullName)
 'msgbox(scriptDir)
 
 ' initialise parameters
+twProjectCodeFileName="twProjFileName.txt"
+twProjectCode=getTwProjCode(scriptDir,twProjectCodeFileName)
 
 
 ' get file list array
 Set fileList = listFiles(scriptDir)
 Set commandArrays = convertCsvToCommandArrays(scriptDir)
 call writeCommandsToFile(commandArrays, scriptDir)
+
+' read the code for the taskwarrior project form a file
+Function getTwProjCode(scriptDir,twProjCodeFileName)
+dim fs,objTextFile
+	set fs=CreateObject("Scripting.FileSystemObject")
+	dim arrStr
+	set objTextFile = fs.OpenTextFile(scriptDir+"/"+twProjCodeFileName)
+
+	' Create a collection that contains the lines
+	Set lines = CreateObject("System.Collections.ArrayList")
+
+	' read the lines from the file
+	Do while NOT objTextFile.AtEndOfStream
+		getTwProjCode =objTextFile.ReadLine
+	Loop
+End Function
 
 ' Loop through the files in this directory and convert the .csv to taskwarrior commands
 Function convertCsvToCommandArrays(scriptDir)
@@ -89,7 +107,7 @@ Function createCsvFiles(filename,scriptDir)
 		case "assignments.csv"
 			'msgbox("found case for assignments.csv")
 			For i = 0 To lines.count -1
-				commands.add("task add due:"+lines.Item(i)(5)+" proj:"+projectSubCode+getProjWeek(lines.Item(i)(0))+" make "+lines.Item(i)(0)+lines.Item(i)(3)+" Weight:"+lines.Item(i)(7))+" priority:H"
+				commands.add("task add due:"+lines.Item(i)(5)+" proj:"+twProjectCode+getProjWeek(lines.Item(i)(0))+" make "+lines.Item(i)(0)+lines.Item(i)(3)+" Weight:"+lines.Item(i)(7))+" priority:H"
 			Next
 		case "hi"
 		   'msgbox("Match hi")
