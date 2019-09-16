@@ -1,7 +1,7 @@
 ' This script assumes the following columns in the .csv file:
 ' Nr.,Cal,tw,Topic,Available,Due,Source due,Weight,Source weight 
 
-projectSubCode="uni.SatOrbDet."
+projectSubCode="uni.sse."
 
 dim fs,objTextFile
 set fs=CreateObject("Scripting.FileSystemObject")
@@ -22,7 +22,7 @@ Loop
 ' generate task add commands
 Set commands = CreateObject("System.Collections.ArrayList")
 For i = 0 To lines.count -1
-    commands.add("task add due:"+lines.Item(i)(5)+" proj:"+projectSubCode+getProjWeek(lines.Item(i)(0))+" make "+lines.Item(i)(0)+lines.Item(i)(3)+" Weight:"+lines.Item(i)(7))
+    commands.add("task add due:"+lines.Item(i)(5)+" proj:"+projectSubCode+getProjWeek(lines.Item(i)(0))+" make "+lines.Item(i)(0)+lines.Item(i)(3)+" Weight:"+lines.Item(i)(7))+" priority:H"
 Next
 
 'Write commands to txt file
