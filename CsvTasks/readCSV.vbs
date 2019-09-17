@@ -39,9 +39,7 @@ Function convertCsvToCommandArrays(scriptDir)
 	For i = 0 To fileList.count -1
 		If (i=0) Then
 			Set commands = createCsvFiles(fileList(i),scriptDir)
-			msgbox("FirstCommand="+commands(0))
 			summedCommands.add(commands)
-			msgbox("First command="+summedCommands(0)(0))
 		Else
 			set commands = (createCsvFiles(fileList(i),scriptDir))
 			If commands.count >0 Then
@@ -101,17 +99,37 @@ Function createCsvFiles(filename,scriptDir)
 		case "assignments.csv"
 			'msgbox("found case for assignments.csv")
 			For i = 0 To lines.count -1
-				commands.add("task add due:"+lines.Item(i)(5)+" proj:"+twProjectCode+getProjWeek(lines.Item(i)(0))+" make "+lines.Item(i)(0)+lines.Item(i)(3)+" Weight:"+lines.Item(i)(7))+" priority:H"
-				msgbox(commands(i))
+				commands.add("task add due:"+lines.Item(i)(5)+" proj:"+twProjectCode+".as."+getProjWeek(lines.Item(i)(0))+" make "+lines.Item(i)(0)+lines.Item(i)(3)+" Weight:"+lines.Item(i)(7)+" priority:H")
+			
 			Next
 		case "oldExams.csv"
 			For i = 0 To lines.count -1
 				'Source	Nr	Date	Nr of Exercises	Exerc. Id	Weight	Topic	Lect. Topic	Due
 				'0		1	2		3				4			5		6		7	  	 	8
-				'msgbox("adding duedate="+lines.Item(i)(8))
-				commands.add("task add due:"+lines.Item(i)(8)+ " priority:H"+" proj:"+twProjectCode+".OldEx"+" "+lines.Item(i)(0)+" exam date "+lines.Item(i)(1)+lines.Item(i)(2)+" exercise "+lines.Item(i)(3)+"-"+lines.Item(i)(4)+" weight="+lines.Item(i)(5)+" topic="+lines.Item(i)(6)+" lect.topic="+lines.Item(i)(7))
-				'msgbox(commands(i))
+				commands.add("task add due:"+lines.Item(i)(8)+ " priority:H"+" proj:"+twProjectCode+".OldEx"+" "+lines.Item(i)(0)+" exam date "+lines.Item(i)(1)+lines.Item(i)(2)+" exercise "+lines.Item(i)(3)+"-"+lines.Item(i)(4)+" weight="+lines.Item(i)(5)+" topic="+lines.Item(i)(6)+" lect.topic="+lines.Item(i)(7))'msgbox(commands(i))
 			Next
+			
+		case "exercises.csv"
+			For i = 0 To lines.count -1
+				'Nr	Cal	Tw	Available	Topic	Lecture topic	Due date
+				'0	1	2	3			4		5				7
+				commands.add("task add due:"+lines.Item(i)(7)+" proj:"+twProjectCode+".exer"+" "+" exercise nr="+lines.Item(i)(0)+" topic="+lines.Item(i)(4)+" lect.topic="+lines.Item(i)(5))
+			Next
+		
+		case "studyMaterial.csv"
+			For i = 0 To lines.count -1
+				'Nr	Cal	Tw	Available	Topic	Lecture topic	Due date
+				'0	1	2	3			4		5				7
+				commands.add("task add due:"+lines.Item(i)(7)+" proj:"+twProjectCode+".exer"+" "+" exercise nr="+lines.Item(i)(0)+" topic="+lines.Item(i)(4)+" lect.topic="+lines.Item(i)(5))
+			Next		
+		case "exam.csv"
+			For i = 0 To lines.count -1
+				'date		Location	duration	weight
+				'0			1			2			3
+				commands.add("task add due:"+lines.Item(i)(0)+" proj:"+twProjectCode+".exam"+" "+" location="+lines.Item(i)(1)+" weight="+lines.Item(i)(3)+" duration="+lines.Item(i)(2))
+				commands.add("task add due:"+getExamRegistryDate(lines.Item(i)(0))+" priority:H proj:"+twProjectCode+".exam"+" "+"REGISTER FOR THIS EXAM")				
+			Next
+	
 		   'msgbox("Match hi")
 		case else
 		   'msgbox(fileName +"not terminated")
@@ -122,6 +140,24 @@ Function createCsvFiles(filename,scriptDir)
 	set fs = Nothing
 	Set createCsvFiles = commands
 End Function
+
+Function getExamRegistryDate(examDate)
+	'msgbox(examDate)
+	'msgbox("Month="+Mid(examDate, 6, 2))
+	If (Mid(examDate, 9, 2)> 14) Then
+		getExamRegistryDate=Left(examDate, 8)+cStr(Mid(examDate, 9, 2)-15)
+	Else
+		If (Mid(examDate, 6, 2)= "01") Then
+			getExamRegistryDate=Left(examDate, 2)+cStr(Mid(examDate,3,2)-1)+"-11-"+cStr(28+Mid(examDate, 9, 2)-15)
+		Else
+			msgbox("setting:"+Left(examDate, 5)+cStr(Mid(examDate,6,2)-1)+"-"+cStr(28+Mid(examDate, 9, 2)-15))
+			getExamRegistryDate=Left(examDate, 8)+cStr(28+Mid(examDate, 9, 2)-15)
+		End If 
+	End If 
+
+End Function
+
+
 
 
 ' Get the week number so that it can be added to the end of the project
