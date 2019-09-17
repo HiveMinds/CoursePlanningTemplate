@@ -76,8 +76,10 @@ $\msquare$
 \hspace*{-6em}
 \begin{tabular}{l|l|l|l|l|l|l|l|l}%
     \bfseries Nr. & \bfseries Cal & \bfseries tw & \bfseries Topic & \bfseries Available & \bfseries Due & \bfseries Source due & \bfseries Weight & \bfseries Source weight % specify table head
-    % \csvreader[head to column names]{Basket_ball.csv}{}% use head of csv as column names
-    \csvreader[head to column names]{CsvTasks/Tasks.csv}{}% use head of csv as column names
+    %\csvreader[head to column names]{Basket_ball.csv}{}% use head of csv as column names
+    
+    \csvreader[head to column names]{CsvTasks/assignments.csv}{}%
+%    \csvreader[]{CsvTasks/assignments.csv}{}%
     {\\\hline\csvcoli&\csvcolii&\csvcoliii&\csvcoliv&\csvcolv&\csvcolvi&\csvcolvii&\csvcolviii&\csvcolix}% specify your coloumns here
     \end{tabular}
 
