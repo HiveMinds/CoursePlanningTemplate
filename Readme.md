@@ -13,4 +13,5 @@ That will automatically build the pdf and generate a list of taskwarrior command
 ## TODO
 
 Fix `CommandScripts.vbs` so that users don't have to use python.
+
 Automate running `buildme.vbs` when excel is done.
