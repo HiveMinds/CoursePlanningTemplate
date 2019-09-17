@@ -126,7 +126,7 @@ Function createCsvFiles(filename,scriptDir)
 			For i = 0 To lines.count -1
 				'date		Location	duration	weight
 				'0			1			2			3
-				commands.add("task add due:"+lines.Item(i)(0)+" proj:"+twProjectCode+".exam"+" "+" location="+lines.Item(i)(1)+" weight="+lines.Item(i)(3)+" duration="+lines.Item(i)(2))
+				commands.add("task add due:"+lines.Item(i)(0)+" proj:"+twProjectCode+".exam"+" "+" make exam at location="+lines.Item(i)(1)+" weight="+lines.Item(i)(3)+" duration="+lines.Item(i)(2))
 				commands.add("task add due:"+getExamRegistryDate(lines.Item(i)(0))+" priority:H proj:"+twProjectCode+".exam"+" "+"REGISTER FOR THIS EXAM")				
 			Next
 	
