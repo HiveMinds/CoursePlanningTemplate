@@ -15,7 +15,7 @@ twProjectCode=getTwProjCode(scriptDir,twProjectCodeFileName)
 ' get file list array
 Set fileList = listFiles(scriptDir)
 Set commandArrays = convertCsvToCommandArrays(scriptDir)
-call writeCommandsToFile(commandArrays, scriptDir)
+call writeTaskwarriorCommands(commandArrays, scriptDir)
 
 ' read the code for the taskwarrior project form a file
 Function getTwProjCode(scriptDir,twProjCodeFileName)
@@ -39,7 +39,9 @@ Function convertCsvToCommandArrays(scriptDir)
 	For i = 0 To fileList.count -1
 		If (i=0) Then
 			Set commands = createCsvFiles(fileList(i),scriptDir)
+			msgbox("FirstCommand="+commands(0))
 			summedCommands.add(commands)
+			msgbox("First command="+summedCommands(0)(0))
 		Else
 			set commands = (createCsvFiles(fileList(i),scriptDir))
 			If commands.count >0 Then
@@ -50,15 +52,6 @@ Function convertCsvToCommandArrays(scriptDir)
 	Next
 	Set convertCsvToCommandArrays = summedCommands
 End Function 
-
-'Write commands to Taskwarrior.Commands.txt file if not empty
-Function writeCommandsToFile(commandArrays, scriptDir)
-	For i = 0 To commandArrays.count -1
-		If commandArrays(i).count>0 Then
-			call writeTaskwarriorCommands(commandArrays(i), scriptDir)
-		End If
-	Next
-End Function
 
 ' list the .csv files in this directory
 Function listFiles(sFolder)
@@ -86,7 +79,7 @@ Function createCsvFiles(filename,scriptDir)
 	dim fs,objTextFile
 	set fs=CreateObject("Scripting.FileSystemObject")
 	dim arrStr
-	' set objTextFile = fs.OpenTextFile("Tasks.csv")
+	' set objTextFile = fs.OpenTextFile("Tasks.csv")
 	set objTextFile = fs.OpenTextFile(scriptDir+"/"+filename)
 
 	' Create a collection that contains the lines
@@ -103,13 +96,22 @@ Function createCsvFiles(filename,scriptDir)
 	Set commands = CreateObject("System.Collections.ArrayList")
 	
 	' switch to different task commands for different data types
+	'msgbox(fileName)
 	Select case fileName
 		case "assignments.csv"
 			'msgbox("found case for assignments.csv")
 			For i = 0 To lines.count -1
 				commands.add("task add due:"+lines.Item(i)(5)+" proj:"+twProjectCode+getProjWeek(lines.Item(i)(0))+" make "+lines.Item(i)(0)+lines.Item(i)(3)+" Weight:"+lines.Item(i)(7))+" priority:H"
+				msgbox(commands(i))
 			Next
-		case "hi"
+		case "oldExams.csv"
+			For i = 0 To lines.count -1
+				'Source	Nr	Date	Nr of Exercises	Exerc. Id	Weight	Topic	Lect. Topic	Due
+				'0		1	2		3				4			5		6		7	  	 	8
+				'msgbox("adding duedate="+lines.Item(i)(8))
+				commands.add("task add due:"+lines.Item(i)(8)+ " priority:H"+" proj:"+twProjectCode+".OldEx"+" "+lines.Item(i)(0)+" exam date "+lines.Item(i)(1)+lines.Item(i)(2)+" exercise "+lines.Item(i)(3)+"-"+lines.Item(i)(4)+" weight="+lines.Item(i)(5)+" topic="+lines.Item(i)(6)+" lect.topic="+lines.Item(i)(7))
+				'msgbox(commands(i))
+			Next
 		   'msgbox("Match hi")
 		case else
 		   'msgbox(fileName +"not terminated")
@@ -132,7 +134,7 @@ Function getProjWeek(weekNr)
 End Function
 
 ' writes the commands so you can can instantly copy paste them to Taskwarrior
-Function writeTaskwarriorCommands(commands,scriptDir)
+Function writeTaskwarriorCommands(commands(),scriptDir)
   Set objFSO = CreateObject("Scripting.FileSystemObject")
   
   'SourceFile = objFSO.GetParentFolderName(WScript.ScriptFullName) & "\taskwarriorCommands.txt"
@@ -141,12 +143,15 @@ Function writeTaskwarriorCommands(commands,scriptDir)
       ' "The reverse of Read entire file—for when you want to update or create a file which you would read in its entirety all at once."
   
   With objFSO.OpenTextFile(SourceFile,2,True,0)
-	msgbox("incoming length = "+cstr(commands.count-1))
-	msgbox(commands(2))
-    For i = 0 To commands.count -1
-		msgbox("writing:"+commands(i))
-		.Write commands.Item(i) & vbCrLf
-    Next
+	For i = 0 To commands.count -1
+		If commands(i).count>0 Then
+			For j = 0 To commands(i).count -1
+				.Write commands(i)(j) & vbCrLf
+			Next
+			
+		End If
+	Next
+    
     .Close
   End With
   
