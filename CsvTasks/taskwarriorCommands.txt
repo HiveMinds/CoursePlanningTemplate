@@ -1,3 +1,32 @@
-task add due:Due proj:uni.sse. make NrTopic Weight:Weight priority:H
-task add due:2019-10-17T10:45 proj:uni.sse. make 1Recreate plot Weight:5 priority:H
-task add due:2019-10-17T10:45 proj:uni.sse. make 2Multi stage rocket Weight:5 priority:H
+task add due:2019-10-17T10:45 proj:uni.sse.as. make 1Recreate plot Weight:5 priority:H
+task add due:2019-10-17T10:45 proj:uni.sse.as. make 2Multi stage rocket Weight:5 priority:H
+task add due:2019-10-28 proj:uni.sse.exam  location= weight=90 duration=3
+task add due:2019-10-13 priority:H proj:uni.sse.exam REGISTER FOR THIS EXAM
+task add due:2019-09-03 priority:H proj:uni.sse.OldEx Old Course exam date 12014-10-28 exercise 4-1 weight=10 topic=MC understanding lect.topic=Fundamentals
+task add due:2019-09-17 priority:H proj:uni.sse.OldEx Old Course exam date 12014-10-28 exercise 4-2 weight=30 topic=mass; construction mass; V_e;id lect.topic=Multi stage rockets
+task add due:2019-10-01 priority:H proj:uni.sse.OldEx Old Course exam date 12014-10-28 exercise 4-3 weight=30 topic=Balistic spherical flight range  angle phi_0 lect.topic=Balistic flight over earth
+task add due:2019-09-05 priority:H proj:uni.sse.OldEx Old Course exam date 12014-10-28 exercise 4-4 weight=30 topic=Wind; constant thrust EOM vert. motion lect.topic=Launch Trajectories
+task add due:2019-09-03 priority:H proj:uni.sse.OldEx Old Course exam date 22015-10-27 exercise 4-1 weight=10 topic=MC understanding lect.topic=Fundamentals
+task add due:2019-09-17 priority:H proj:uni.sse.OldEx Old Course exam date 22015-10-27 exercise 4-2 weight=30 topic=EOM vertical flight; mass;accel; multistage;V(Height) lect.topic=Multi stage rockets
+task add due:2019-10-15 priority:H proj:uni.sse.OldEx Old Course exam date 22015-10-27 exercise 4-3 weight=30 topic=Design traject;throtle control law;energy gain lect.topic=Unconventional launch
+task add due:2019-10-01 priority:H proj:uni.sse.OldEx Old Course exam date 22015-10-27 exercise 4-4 weight=30 topic=Spherical; gamma_0;psi_0;derive lect.topic=Balistic flight over earth
+task add due:2019-09-05 priority:H proj:uni.sse.OldEx Old Course exam date 3SampleExam exercise 6-1 weight=15 topic=Vertic Flight; V(height); lect.topic=Launch Trajectories
+task add due:2019-10-01 priority:H proj:uni.sse.OldEx Old Course exam date 3SampleExam exercise 6-2 weight=15 topic=Spherical;elipse Polar;alt;inclination lect.topic=Balistic flight over earth
+task add due:2019-09-17 priority:H proj:uni.sse.OldEx Old Course exam date 3SampleExam exercise 6-3 weight=15 topic=Multi stage;Vend; limit case infinte nr of stages lect.topic=Multi stage rockets
+task add due:2019-10-15 priority:H proj:uni.sse.OldEx Old Course exam date 3SampleExam exercise 6-4 weight=15 topic=EOM; rail launch;flight path angle gamma_0 lect.topic=Unconventional launch
+task add due:2019-09-05 priority:H proj:uni.sse.OldEx Old Course exam date 3SampleExam exercise 6-5 weight=15 topic=EOM; orb period;Inertial launch params lect.topic=Launch Trajectories
+task add due:2019-09-17 priority:H proj:uni.sse.OldEx Old Course exam date 3SampleExam exercise 6-6 weight=15 topic=Multi stage; EOM vert flight;mass lect.topic=Multi stage rockets
+task add due:2019-09-03 priority:H proj:uni.sse.OldEx Brightspace exam date 42016-10-31 exercise 4-1 weight=10 topic=MC understanding lect.topic=Fundamentals
+task add due:2019-09-17 priority:H proj:uni.sse.OldEx Brightspace exam date 42016-10-31 exercise 4-2 weight=30 topic=Multi stage; EOM vert flight;mass lect.topic=Multi stage rockets
+task add due:2019-09-17 priority:H proj:uni.sse.OldEx Brightspace exam date 42016-10-31 exercise 4-3 weight=30 topic=V(height);alts;Multistage lect.topic=Multi stage rockets
+task add due:2019-10-01 priority:H proj:uni.sse.OldEx Brightspace exam date 42016-10-31 exercise 4-4 weight=30 topic=Spherical;Flight range phi_0 lect.topic=Balistic flight over earth
+task add due:2019-09-03 priority:H proj:uni.sse.OldEx Brightspace exam date 42017-10-30 exercise 4-1 weight=10 topic=MC understanding lect.topic=Fundamentals
+task add due:2019-09-05 priority:H proj:uni.sse.OldEx Brightspace exam date 42017-10-30 exercise 4-2 weight=30 topic=mass;V_burnout;V(height) lect.topic=Launch Trajectories
+task add due:2019-10-01 priority:H proj:uni.sse.OldEx Brightspace exam date 42017-10-30 exercise 4-3 weight=30 topic=Non rotating Spherical;elips;polar;law of conserv lect.topic=Balistic flight over earth
+task add due:2019-09-05 priority:H proj:uni.sse.OldEx Brightspace exam date 42017-10-30 exercise 4-4 weight=30 topic=T_constant;EOM vertical derive lect.topic=Launch Trajectories
+task add due:2019-10-01 priority:H proj:uni.sse.OldEx Studeersnel exam date 52010-06-28 exercise 2-1 weight=50 topic=Re-entry/ballistic flight;velocity;fligth path gamma lect.topic=Balistic flight over earth
+task add due:2019-10-01 priority:H proj:uni.sse.OldEx Studeersnel exam date 52010-06-28 exercise 2-2 weight=50 topic=Inertial; Reference frame;Orbital period lect.topic=Balistic flight over earth
+task add due:2019-09-05 priority:H proj:uni.sse.OldEx Studeersnel exam date 62009-06-18 exercise 2-1 weight=50 topic=Mass;V(heights) lect.topic=Launch Trajectories
+task add due:2019-10-01 priority:H proj:uni.sse.OldEx Studeersnel exam date 62009-06-18 exercise 2-2 weight=50 topic=re-entry lect.topic=Balistic flight over earth
+task add due:2019-10-01 priority:H proj:uni.sse.OldEx Studeersnel exam date 72009-01-20 exercise 2-1 weight=50 topic=Re-entry lect.topic=Balistic flight over earth
+task add due:2019-09-17 priority:H proj:uni.sse.OldEx Studeersnel exam date 72009-01-20 exercise 2-2 weight=50 topic=Multistage;mass;v;lambda;diameter lect.topic=Multi stage rockets
