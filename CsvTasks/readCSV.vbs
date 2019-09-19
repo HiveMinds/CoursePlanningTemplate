@@ -112,15 +112,15 @@ Function createCsvFiles(filename,scriptDir)
 		case "exercises.csv"
 			For i = 0 To lines.count -1
 				'Nr	Cal	Tw	Available	Topic	Lecture topic	Due date
-				'0	1	2	3			4		5				7
-				commands.add("task add due:"+lines.Item(i)(7)+" proj:"+twProjectCode+".exer"+" "+" exercise nr="+lines.Item(i)(0)+" topic="+lines.Item(i)(4)+" lect.topic="+lines.Item(i)(5))
+				'0	1	2	3			4		5				6
+				commands.add("task add due:"+lines.Item(i)(6)+" proj:"+twProjectCode+".exer"+" "+" exercise nr="+lines.Item(i)(0)+" topic="+lines.Item(i)(4)+" lect.topic="+lines.Item(i)(5))
 			Next
 		
 		case "studyMaterial.csv"
 			For i = 0 To lines.count -1
 				'Nr	Cal	Tw	Available	Topic	Lecture topic	Due date
-				'0	1	2	3			4		5				7
-				commands.add("task add due:"+lines.Item(i)(7)+" proj:"+twProjectCode+".exer"+" "+" exercise nr="+lines.Item(i)(0)+" topic="+lines.Item(i)(4)+" lect.topic="+lines.Item(i)(5))
+				'0	1	2	3			4		5				6
+				commands.add("task add due:"+lines.Item(i)(6)+" proj:"+twProjectCode+".exer"+" "+" exercise nr="+lines.Item(i)(0)+" topic="+lines.Item(i)(4)+" lect.topic="+lines.Item(i)(5))
 			Next		
 		case "exam.csv"
 			For i = 0 To lines.count -1
