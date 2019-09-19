@@ -106,7 +106,7 @@ Function createCsvFiles(filename,scriptDir)
 			For i = 0 To lines.count -1
 				'Source	Nr	Date	Nr of Exercises	Exerc. Id	Weight	Topic	Lect. Topic	Due
 				'0		1	2		3				4			5		6		7	  	 	8
-				commands.add("task add due:"+lines.Item(i)(8)+ " priority:H"+" proj:"+twProjectCode+".OldEx"+" "+lines.Item(i)(0)+" exam date "+lines.Item(i)(1)+lines.Item(i)(2)+" exercise "+lines.Item(i)(3)+"-"+lines.Item(i)(4)+" weight="+lines.Item(i)(5)+" topic="+lines.Item(i)(6)+" lect.topic="+lines.Item(i)(7))'msgbox(commands(i))
+				commands.add("task add due:"+lines.Item(i)(8)+ " priority:H"+" proj:"+twProjectCode+".OldEx"+" "+lines.Item(i)(0)+" exam nr="+lines.Item(i)(1)+" exam date="+lines.Item(i)(2)+" exercise "+lines.Item(i)(3)+"-"+lines.Item(i)(4)+" weight="+lines.Item(i)(5)+" topic="+lines.Item(i)(6)+" lect.topic="+lines.Item(i)(7))'msgbox(commands(i))
 			Next
 			
 		case "exercises.csv"
