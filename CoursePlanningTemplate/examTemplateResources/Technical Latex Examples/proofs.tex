@@ -1,0 +1,88 @@
+\section{proof:}
+\theoremstyle{plain}
+
+% automatic section numbering theorem
+
+
+
+% %%%%%%%%%%%%Create custom theorem numbering:
+% \newtheorem{innercustomthm}{Theorem}
+% \newenvironment{customthm}[1]
+%   {\renewcommand\theinnercustomthm{#1}\innercustomthm}
+%   {\endinnercustomthm}
+% %%%%%%%%%%%%Create custom theorem numbering:
+\begin{customthm}{99}[Somebody]\label{ninetynine}
+Statement.
+\end{customthm}
+
+%So all theorems must be custom numbered
+\begin{customthm}[]\label{ninetynine}
+Statement.
+\end{customthm}
+
+
+\begin{lemma}
+To prove: $L(m_-,m_+,a)$ is a convex on its domain $\mathbb{R}^d \times \mathbb{R}^d \times \mathbb{R}$.
+\end{lemma}
+ 
+\begin{proof}
+Using a direct proof, a norm is proved to be convex. The variables of the function $L$ are added and combined using only operations that preserve convexity until it equals function $L$. 
+\\
+Starting with a mapping $f\rightarrow ||f||$,$f\in V$,  $||f|| \in \mathbb{R^d}$, function $f$is a norm by definition 2.2 of \cite{norm_definition} if the following conditions hold:
+\begin{equation}
+    \forall a \in V:||a||\geq
+    \label{eq:convex0}
+\end{equation}
+\begin{equation}
+    ||a||=0 \Leftrightarrow a=0
+    \label{eq:convex1}
+\end{equation}
+\begin{equation}
+    \forall a \in V, \lambda \in \mathbb{R}:\lambda||a||=||\lambda a||
+    \label{eq:convex2}
+\end{equation}
+\begin{equation}
+    \forall a,b\in V:||a+b||\leq ||a||+||b||
+    \label{eq:convex3}
+\end{equation}
+Using the definition of convex\cite{zinkevich2003online}, a function $f:V\rightarrow \mathbb{R}$ is convex if:
+\begin{equation}
+    a,b \in V,\lambda \in[0,1]:f(\lambda a+(1-\lambda)b)\leq \lambda f(a)+(1-\lambda)f(b)
+    \label{eq:convex4}
+\end{equation}
+%v,w∈V,λ∈[0,1]:f(λv+(1−λ)w)≤λf(v)+(1−λ)f(w)
+Since $\lambda \in [0,1]$, \cref{eq:convex2} can be used to move $\lambda$ out, and \cref{eq:convex3} can be used to separate the terms $a$ and $(1-\lambda)$. That yields \cref{eq:convex5} and \cref{eq:convex6} for norm $||f(a,b,\lambda)||$ in $\mathbb{R}$.
+
+\begin{equation}
+    ||\lambda a+(1-\lambda)b||\leq ||\lambda a||+||(1-\lambda)b||
+    \label{eq:convex5}
+\end{equation}
+with:
+\begin{equation}
+    ||\lambda a||+||(1-\lambda)b||=\lambda||a||+(1-\lambda)||w||
+    \label{eq:convex6}
+\end{equation}
+
+That proves norm $||f(a,b,\lambda)||$ is convex in $\mathbb{R}$. This norm is rewritten twice, both to the $l_1$-norm. However, that requires the domain $f \in \mathbb{R}$ to be mapped to $f \in \mathbb{R^4}$. For that purpose, convexity preserving operation $f:\mathbb{R^n}\rightarrow \mathbb{R^m}$ of slide 9 of \cite{preserving_convexity} is used.
+
+Next, the variables of general norm $||f||$ are substituted. $a$ is substituted by $m_+$,$b$ by $m_-$, $\lambda$ by $a$. Multiplying by $\lambda_1$ to create the right term of $L$:
+\begin{equation}
+    \lambda_1||m_+-m_-+a||_1
+    \label{eq:convex7}
+\end{equation}
+For the second term, $a$ is substituted by $x_i^c$, $b$ with $m_c$ yielding:
+\begin{equation}
+    ||x_i^c-m_c||_1 
+    \label{eq:convex8}
+\end{equation}
+
+The elements of the double summation of norm \cref{eq:convex8} and norm \cref{eq:convex9} are added using the weighted summation with $w_i=1$ of rule 1 of convexity preserving rules by \cite{preserving_convexity_rules_berkely}.
+
+That proves
+\begin{equation}
+    L(m_-,m_+,a):=\left(\sum_{c \in \{-,+\}}^j \sum_{i}^{N_c}||x_i^c-m_c||_1 \right)+\lambda ||m_+m_-+a||_1
+    \label{eq:objective_function}
+\end{equation}
+
+is convex in it's domain $\mathbb{R}^d\times \mathbb{R}^d \times \mathbb{R}$
+\end{proof}

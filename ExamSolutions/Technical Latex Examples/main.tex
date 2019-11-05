@@ -1,0 +1,199 @@
+\documentclass{article}
+\usepackage{amsmath} % need to be on top for eps files
+\usepackage{graphicx}
+\graphicspath{ {/images/} }
+%set the relative location for eps files
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}%To be able to use split in equation
+\usepackage{datatool,siunitx}
+\usepackage{float}
+\usepackage{url}
+
+%Working solution Table aligned left
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{enumitem} % enumerate alphabetically
+
+% Attempt 0
+%\usepackage{enumitem,tabularx,showframe,calc}
+% Attempt 1
+%\usepackage{ragged2e,array}
+% Attempt 2-4
+%\usepackage{tabularx}
+
+%Attempt 7
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{caption}
+
+% To get mutliple  columns:{
+\usepackage{multicol}
+% To get clever references, used in this example.
+\usepackage{cleveref} %cleverref needs to stand below amsmath package.
+% }
+% To get side by side pictures:{
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+
+% }
+
+%%%%%%%%%%% to rotate figures and make them full page:
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{wrapfig}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{epstopdf}
+
+% to add a full A4 size gantt chart picture
+\usepackage{pdfpages} 
+
+%%%%%%% GET SIDE BY SIDE IMAGES
+\usepackage{subfig}
+
+
+%Get straigth quotation marks:
+\usepackage{textcomp}
+\usepackage[T1]{fontenc}  % access \textquotedbl
+\usepackage{textcomp}     % access \textquotesingle
+\usepackage{mathptmx}     % load "Times New Roman" text font 
+                          % (note: the "times" package is obsolete!)
+                          
+                          
+%%%%%%%%%%%%%%% Add lemaas and proofs
+\usepackage{amsthm}
+\usepackage{blindtext}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+%\newtheorem{theorem}{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+%%%%%%%%%%%%%%% Add lemaas and proofs
+
+% %%%%%%%%%%%%%%%%%%%%% add theorems with auto section numbering
+% \theoremstyle{plain}
+% \newtheorem{thm}{Theorem}[section]
+% \newtheorem{lem}[thm]{Lemma}
+% \newtheorem{prop}[thm]{Proposition}
+% \newtheorem*{cor}{Corollary}
+
+% \theoremstyle{definition}
+% \newtheorem{defn}{Definition}[section]
+% \newtheorem{conj}{Conjecture}[section]
+% \newtheorem{exmp}{Example}[section]
+
+% \theoremstyle{remark}
+% \newtheorem*{rem}{Remark}
+% \newtheorem*{note}{Note}
+% %%%%%%%%%%%%%%%%%%%%% add theorems
+
+%%%%%%%%%%%%Create custom theorem numbering:
+\newtheorem{innercustomthm}{Theorem}
+\newenvironment{customthm}[1]
+  {\renewcommand\theinnercustomthm{#1}\innercustomthm}
+  {\endinnercustomthm}
+%%%%%%%%%%%%Create custom theorem numbering:
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Create listings (Java)
+\usepackage{listings}
+\usepackage{color}
+
+% Source: https://www.overleaf.com/project/5ca8e08c504f2453fce240ba
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color
+  basicstyle=\footnotesize,        % size of fonts used for the code
+  breaklines=true,                 % automatic line breaking only at whitespace
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  keywordstyle=\color{blue},       % keyword style
+  stringstyle=\color{mymauve},     % string literal style
+}
+
+%%%% Auto generate table from CSV%%%%%
+% \usepackage{booktabs} % For \toprule, \midrule and \bottomrule
+% \usepackage{siunitx} % Formats the units and values
+% \usepackage{pgfplotstable} % Generates table from .csv
+
+% % Setup siunitx:
+% \sisetup{
+%   round-mode          = places, % Rounds numbers
+%   round-precision     = 2, % to 2 places
+% }
+
+\usepackage{csvsimple}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={175mm,265mm},
+ left=15mm,
+ top=15mm,
+ }
+
+\usepackage{cleveref} %cleverref needs to stand below amsmath package.
+\crefname{lstlisting}{listing}{listings}
+\Crefname{lstlisting}{Listing}{Listings}
+
+
+
+\title{Technical examples}
+\author{A-T-0}
+\date{April 2018}
+
+%%%%
+% use with cleveref
+% also copy text of appsec in the main body that contains appsec with the actual ref to appendices.tex
+\usepackage{appendix}
+\crefname{appsec}{Appendix}{Appendices} % refer to appendix as appendix iso as section
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newpage
+\input{automateVar.tex}
+\input{Style.tex}
+\newpage
+% How to generate a table with automatically wrapped text:
+\input{wrapTableLeft.tex}
+\newpage
+\input{multiColEnu.tex}
+\input{symbols.tex}
+\input{eq}
+\input{proofs.tex}
+\input{listings.tex}
+\input{figures.tex}
+\input{CsvToTable.tex}
+
+% retry try building a table from csv
+% \usepackage{csvsimple}
+%Source: https://tex.stackexchange.com/questions/146716/importing-csv-file-into-latex-as-a-table
+
+% \begin{appendices}
+% \crefalias{section}{appsec}
+% \input{appendix.tex}
+% \input{includePDFapp.tex} 
+% \end{appendices}
+
+\end{document}

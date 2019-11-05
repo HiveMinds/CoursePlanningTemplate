@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={175mm,265mm},
+ left=15mm,
+ top=15mm,
+ }
+\usepackage{amsmath}
+\usepackage{cleveref} %cleverref needs to stand below amsmath package.
+\usepackage{graphicx}
+\usepackage{float}
+%\usepackage{hyperref}
+\usepackage{url} %To be able to use url in references
+\usepackage{graphicx}
+\usepackage{tabularx} % in the preamble
+\usepackage{wrapfig}
+\usepackage{lipsum}  %use filler
+\title{%
+  Exam Solution \\
+  \large Exam Date:}
+\author{Author:\\collaborative effort}
+\date{06-09-2019}
+\begin{document}
+\maketitle
+%\setcounter{chapter}{-1} 
+\input{Chapters/introduction.tex}
+\input{Chapters/chap1.tex} %\newpage
+\input{Chapters/chap2.tex} %\newpage
+\input{Chapters/chap3.tex} %\newpage
+\input{Chapters/chap4.tex} \newpage
+%\input{Chapters/chap5.tex} \newpage
+%\input{Chapters/chap6.tex} \newpage
+
+\bibliographystyle{plain} %plain style
+\bibliography{references}
+\addcontentsline{toc}{chapter}{Bibliography}
+\end{document}

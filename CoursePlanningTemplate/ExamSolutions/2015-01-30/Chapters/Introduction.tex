@@ -1,0 +1,38 @@
+\setcounter{section}{-1}
+\section{Introduction}\label{sec:introduction}
+%You can type the text here
+This contains an exam solution. If you wish to contribute to this exam solution:
+\begin{enumerate}
+    \item Create a github account, (you can create an "anonymous" one).
+    \item git clone ...
+    \item edit your changes in the document.
+    \item open cmd, and browse to inside the folder you downloaded and edited
+    \item git pull (updates your local repository=copy of folder, to the latest version in github cloud)
+    \item git status shows which files you changed.
+    \item git add "/some folder with a space/someFileYouChanged.tex"
+    \item git commit -m "Included solution to question 1c."
+    \item git push
+\end{enumerate}
+It can be a bit initimidating at first, so feel free to click on "issue" in the github browser of this repository and ask :) (You can also use that to say "Hi, I'm having a bit of help with this particular equation, can someone help me out?")
+
+If you don't know how to edit a latex file on your own pc iso on overleaf, look at the "How to use" section of \url{https://github.com/a-t-0/AE4872-Satellite-Orbit-Determination}.
+
+\subsection{Consistency}
+To make everything nice and structured, please use very clear citations:
+\begin{enumerate}
+	\item If you copy/use an equation of some slide or document, please add the following data:
+	\begin{enumerate}
+		\item Url (e.g. if simple wiki or some site)
+		\item Name of document
+		\item (Author)
+		\item PAGE/SLIDE number so people can easily find it again
+		\item equation number (so people can easily find it again)
+	\end{enumerate}
+	\item If you use an equation from the slides/a book that already has an equation number, then hardcode that equation number in this solution manual so people directly see which equation in the lecture material it is, this facilitates remembering the equations.
+	\item Here is an example is given in \cref{eq:expert_regrets} (See file references.bib \cite{example_equation}). 
+	\begin{equation}
+    R_n^E=\sum_{t=1}^{n}l_m(p_t,z_t)-{\underset{i}{min}} \sum_{t=1}^{n}{z_t}^i
+	\tag{10.32\cite{example_equation}}   
+    \label{eq:expert_regrets}
+	\end{equation}
+\end{enumerate}

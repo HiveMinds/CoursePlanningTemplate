@@ -1,0 +1,80 @@
+\documentclass{article}
+
+% compile this latex from the cmd directory that contains this file, with: pdflatex --enable-write18 -interaction=nonstopmode main.tex
+
+
+%\immediate\write18{CommandScripts.vbs}
+\immediate\write18{CommandScripts.py}
+
+
+%\immediate\write18{.CsvTasks/readCSV.vbs}
+
+%%%%%Auto generate table from csv%%%
+% \usepackage{booktabs} % For \toprule, \midrule and \bottomrule
+% \usepackage{siunitx} % Formats the units and values
+% \usepackage{pgfplotstable} % Generates table from .csv
+
+%%% RETRY auto generate csv from table
+\usepackage{csvsimple}
+
+%% Shift auto generated table from csv to left%%%
+%\usepackage[showframe=true]{geometry}
+\usepackage{changepage}
+
+% % Setup siunitx:
+% \sisetup{
+%   round-mode          = places, % Rounds numbers
+%   round-precision     = 2, % to 2 places
+% }
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={175mm,265mm},
+ left=15mm,
+ top=15mm,
+ }
+\usepackage{amsmath}
+\usepackage{cleveref} %cleverref needs to stand below amsmath package.
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{url} %To be able to use url in references
+\usepackage{graphicx}
+%\usepackage{tabularx} % in the preamble
+\usepackage{wrapfig}
+\usepackage{scalerel,amssymb} %To add a square in latex text
+\def\mcirc{\mathbin{\scalerel*{\circ}{j}}} %To add a square in latex text
+\def\msquare{\mathord{\scalerel*{\Box}{gX}}} %To add a square in latex text
+\usepackage{color}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+\title{Title.}
+%\author{Name: ...}
+%\date{18-04-2018}
+\begin{document}
+%\maketitle
+%\setcounter{chapter}{-1} 
+%\input{Chapters/introduction.tex}
+\input{Chapters/1-task1.tex} %\newpage
+\input{Chapters/2-task2.tex} %\newpage
+%\input{Chapters/3-task3.tex} %\newpage
+%\input{Chapters/4-task4.tex} %\newpage
+%\input{Chapters/5-task5.tex} %\newpage
+%\input{Chapters/6-task6.tex} %\newpage
+%\input{Chapters/conclusion.tex} %\newpage
+% \section{What does this document list and where?}
+% \section{task 3 of assignment}
+% \section{task 4 of assignment}
+% \section{task 5 of assignment}
+% \section{task 6 of assignment}
+% \section{Additional requirements}
+% \section{What can be concluded from this data?}
+\bibliographystyle{plain} %plain style
+\bibliography{references}
+\addcontentsline{toc}{chapter}{Bibliography}
+\end{document}

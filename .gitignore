@@ -1,7 +1,16 @@
 # git files
 /.metadata/
-main.aux
-main.log
-main.synctex.gz
+
+
+*main.aux
+*main.log
+*main.synctex.gz
+*.aux
+*.bbl
+*.blg
+*.log
+*.synctex.gz
+*.dvi
+
 *.csv
 *.txt

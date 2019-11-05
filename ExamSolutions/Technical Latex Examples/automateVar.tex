@@ -1,0 +1,34 @@
+\section{Introduction}
+
+
+
+\subsection{Importing/synchronizing variables with latex}
+\begin{enumerate}
+    \item include package: usepackage{listings} %Allows import of lists (withs specific lines)
+    \item create .txt file with every value you want somewhere (in an equation) on a separate line
+    \item Add description of variable in the line above that variable, and (line)-number that description
+    \item create a folder in your latex working environment, e.g. named: $"data\_input"$
+    \item upload e.g. "test.txt" with the variables and descriptions
+    \item To input the parameter in latex use the following line:
+    %\lstinputlisting[firstline=2,lastline=2]{data_input/test.txt}
+    \item Party!
+\end{enumerate}
+
+\subsection{Importing/synchronizing variables with latex V1.0}
+    \begin{enumerate}
+    \item add the package listed in the comment, then add the lines below the comment
+%\usepackage{datatool,siunitx}
+    \item Then upload the .txt file that contains the variables.
+
+\DTLloaddb[noheader]{data}{testfile.txt}
+\newcommand{\mydatavalue}[1]{%
+  \begingroup
+  \dtlgetrow{data}{#1}%
+  \dtlgetentryfromcurrentrow{\temp}{1}%
+  \num{\temp}%
+  \endgroup
+}
+    \item and call it with 
+    \item $K_{sh} = \mydatavalue{2}$
+    \item $K_{sh} = \mydatavalue{4}$
+\end{enumerate}

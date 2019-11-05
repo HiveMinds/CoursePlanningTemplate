@@ -1,0 +1,42 @@
+\section{equations}
+\subsection{Splitting equations over multiple lines}
+Keywords: split, equation, multiple lines, vspace, line space, enter
+\begin{equation}
+    \begin{split}
+    rad_{worst} \cdot K_{shielding}^n = 3 \\
+    rad_{best} \cdot K_{shielding}^n = 3 \\
+    817308 \cdot {\frac{1}{2}}^n = 3 \\
+    81730.8 \cdot {\frac{1}{2}}^n = 3
+    \end{split}
+    \label{eq:shield_factor}
+\end{equation}
+
+ \[ x+y = \begin{cases} \mbox{true,} & \mbox{if } 0 < x < 5 \\ \mbox{false,} & \mbox{otherwise} \end{cases} \]
+\subsection{Matrices}
+%\usepackage{amsmath}
+\[
+\begin{bmatrix}
+    x_{11}       & x_{12} & x_{13} & \dots & x_{1n} \\
+    x_{21}       & x_{22} & x_{23} & \dots & x_{2n} \\
+    \hdotsfor{5} \\
+    x_{d1}       & x_{d2} & x_{d3} & \dots & x_{dn}
+\end{bmatrix}
+=
+\begin{bmatrix}
+    x_{11} & x_{12} & x_{13} & \dots  & x_{1n} \\
+    x_{21} & x_{22} & x_{23} & \dots  & x_{2n} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    x_{d1} & x_{d2} & x_{d3} & \dots  & x_{dn}
+\end{bmatrix}
+\]
+
+Or just a single matrix:
+\begin{equation}
+\begin{bmatrix}
+    x_{1}       & 1 & sin(2\pi x_1) & cos(2\pi x_1)\\
+    x_{2}       & 1 & sin(2\pi x_2) & cos(2\pi x_2)\\
+    \hdotsfor{3} \\
+    x_{n}       & 1 & sin(2\pi x_n) & cos(2\pi x_n)\\
+\end{bmatrix}
+    \label{eq:h_matrix_q1b}
+\end{equation}

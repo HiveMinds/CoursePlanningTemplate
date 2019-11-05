@@ -1,0 +1,33 @@
+\section{How to generate a table with automatically wrapped text}
+\subsection{And how to shift table left}
+*the hspace shifts the table left
+% \documentclass{article}
+
+% \usepackage{array}
+% \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+% \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+% \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+%\begin{document}
+    This is a working example of a wrapped text table where the text is left-aligned without the text in the cells being all smeared out.
+    \begin{table}[H]
+    %\begin{tabular}{|l|l|l|l|l|l|l|}
+    \hspace*{-11.50em}
+    %\begin{tabular}{|p{3cm}|p{3cm}|p{2.5cm}|p{2cm}|p{2.cm}|p{2.cm}|p{2.cm}|}
+    \begin{tabular}{| L{3cm} |L{3cm}|L{2.5cm}|L{2cm}|L{2.cm}|L{2.cm}|L{2.cm}|}
+    \hline
+    Week2Lecture2 ANN: Perceptrons, MLP and Backpropagation &   1. 1.a. Neural Networks Supervised  &   2. 1.b. Neural Networks UnSupervised    &   9. 5.a. Notation    &       &       &       \\ \hline
+    W2L3 ANN: Training and building MLPs    &   1. 1.a. Neural Networks Supervised  &   2. 1.b. Neural Networks UnSupervised    &   12. 5.d Gradient descent    &   13. 5.e Training Neural Networks    &   10. 5.b. Model Architecture &   11. 5.c Loss Function   \\ \hline
+    W3L4 Reinforcement Learning &   4. 2.a. Reinforcement Learning  &       &       &       &       &       \\ \hline
+    W3L5 Genetic Algorithms &   3. 1.c Evolutionairy Computing  &   5. 3.a. Evolutionairy computing &       &       &       &       \\ \hline
+    W4L6 Swarm Intelligence &   6. 3.b. Swarm Intelligence  &       &       &       &       &       \\ \hline
+    W4L7 CI Math and Principles Overview    &   9. 5.a. Notation    &   7. 3.c Bayesian Reasoning   &       &       &       &       \\ \hline
+    W5L8 ANN: Unsupervised  &   2. 1.b. Neural Networks UnSupervised    &       &       &       &       &       \\ \hline
+    W5L9 ANN: Deep/Recurrent and Gradient Descent   &   12. 5.d Gradient descent    &   4. 2.a. Reinforcement Learning  &   11. 5.c Loss Function   &       &       &       \\ \hline
+    W6L10 Evolutionary Strategies, Genetic Programming  &   5. 3.a. Evolutionairy computing &   3. 1.c Evolutionairy Computing  &       &       &       &       \\ \hline
+    W6L11 Mixed CI strategies   &   All &       &       &       &       &       \\ \hline
+    W6L12 (Werkcollege) Swarm routing   &   6. 3.b. Swarm Intelligence  &       &       &       &       &       \\ \hline
+    \end{tabular}
+    \end{table}
+%\end{document}
+% \end{document}
