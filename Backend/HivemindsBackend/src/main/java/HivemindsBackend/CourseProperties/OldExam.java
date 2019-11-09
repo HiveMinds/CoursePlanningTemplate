@@ -3,15 +3,19 @@ package HivemindsBackend.CourseProperties;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class OldExam {
+import HivemindsBackend.EduStructure.Course;
+
+public class OldExam extends Course {
 	private String oldExamSource;
 	private int oldExamNr;
 	private LocalDate oldExamDate;
 	private int nrOfQuestions;
 	private ArrayList<ExamQuestion> oldExamQuestions;
 
-	public OldExam(String oldExamSource, LocalDate oldExamDate, int nrOfQuestions,
-			ArrayList<ExamQuestion> oldExamQuestions) {
+	public OldExam(String uniName, String facultyName, boolean isBachelor, String programName, String courseName,
+
+			String oldExamSource, LocalDate oldExamDate, int nrOfQuestions, ArrayList<ExamQuestion> oldExamQuestions) {
+		super(uniName, facultyName, isBachelor, programName, courseName);
 		this.oldExamSource = oldExamSource;
 		this.oldExamDate = oldExamDate;
 		this.nrOfQuestions = nrOfQuestions;

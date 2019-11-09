@@ -1,68 +1,108 @@
 package HivemindsBackend.EduStructure;
 
-import HivemindsBackend.CourseProperties.AssignmentCatalog;
-import HivemindsBackend.CourseProperties.ExerciseCatalog;
-import HivemindsBackend.CourseProperties.LectureCatalog;
-import HivemindsBackend.CourseProperties.OldExamCatalog;
-import HivemindsBackend.CourseProperties.StudyMaterialCatalog;
+import java.util.ArrayList;
+import HivemindsBackend.CourseProperties.Assignment;
+import HivemindsBackend.CourseProperties.Exercise;
+import HivemindsBackend.CourseProperties.Lecture;
+import HivemindsBackend.CourseProperties.OldExam;
+import HivemindsBackend.CourseProperties.StudyMaterial;
 
-public class Course {
-	private String name;
-	private AssignmentCatalog assignmentCatalog;
-	private ExerciseCatalog exerciseCatalog;
-	private LectureCatalog lectureCatalog;
-	private OldExamCatalog oldExamCatalog;
-	private StudyMaterialCatalog studyMaterialCatalog;
+/**
+ * Java does not support hybrid inheritance so I can't make a course that
+ * extends from both object Bachelor and Master simultaneously. To resolve, pass
+ * boolean isBachelor and String EducucationName to recreate the education type
+ * and name inside the course object.
+ * 
+ * @author a
+ *
+ */
+public class Course extends Faculty {
+	private String courseName;
+	private ArrayList<Assignment> assignmentCatalog;
+	private ArrayList<Exercise> exerciseCatalog;
+	private ArrayList<Lecture> lectureCatalog;
+	private ArrayList<OldExam> oldExamCatalog;
+	private ArrayList<StudyMaterial> studyMaterialCatalog;
+	private Bachelor bachelor;
+	private Master master;
 
-	public Course(String name) {
-		this.name = name;
+	public Course(String uniName, String facultyName, boolean isBachelor, String programName, String courseName) {
+		super(uniName, facultyName);
+		if (isBachelor) {
+			bachelor = new Bachelor(uniName, facultyName, programName);
+		} else {
+			master = new Master(uniName, facultyName, programName);
+		}
+
+		this.assignmentCatalog = new ArrayList<Assignment>();
+		this.exerciseCatalog = new ArrayList<>();
+		this.lectureCatalog = new ArrayList<>();
+		this.oldExamCatalog = new ArrayList<>();
+		this.studyMaterialCatalog = new ArrayList<>();
+		this.courseName = courseName;
 	}
 
-	public String getName() {
-		return name;
+	public String getCourseName() {
+		return courseName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
 	}
 
-	public AssignmentCatalog getAssignmentCatalog() {
+	public ArrayList<Assignment> getAssignmentCatalog() {
 		return assignmentCatalog;
 	}
 
-	public void setAssignmentCatalog(AssignmentCatalog assignmentCatalog) {
+	public void setAssignmentCatalog(ArrayList<Assignment> assignmentCatalog) {
 		this.assignmentCatalog = assignmentCatalog;
 	}
 
-	public ExerciseCatalog getExerciseCatalog() {
+	public ArrayList<Exercise> getExerciseCatalog() {
 		return exerciseCatalog;
 	}
 
-	public void setExerciseCatalog(ExerciseCatalog exerciseCatalog) {
+	public void setExerciseCatalog(ArrayList<Exercise> exerciseCatalog) {
 		this.exerciseCatalog = exerciseCatalog;
 	}
 
-	public LectureCatalog getLectureCatalog() {
+	public ArrayList<Lecture> getLectureCatalog() {
 		return lectureCatalog;
 	}
 
-	public void setLectureCatalog(LectureCatalog lectureCatalog) {
+	public void setLectureCatalog(ArrayList<Lecture> lectureCatalog) {
 		this.lectureCatalog = lectureCatalog;
 	}
 
-	public OldExamCatalog getOldExamCatalog() {
+	public ArrayList<OldExam> getOldExamCatalog() {
 		return oldExamCatalog;
 	}
 
-	public void setOldExamCatalog(OldExamCatalog oldExamCatalog) {
+	public void setOldExamCatalog(ArrayList<OldExam> oldExamCatalog) {
 		this.oldExamCatalog = oldExamCatalog;
 	}
 
-	public StudyMaterialCatalog getStudyMaterialCatalog() {
+	public ArrayList<StudyMaterial> getStudyMaterialCatalog() {
 		return studyMaterialCatalog;
 	}
 
-	public void setStudyMaterialCatalog(StudyMaterialCatalog studyMaterialCatalog) {
+	public void setStudyMaterialCatalog(ArrayList<StudyMaterial> studyMaterialCatalog) {
 		this.studyMaterialCatalog = studyMaterialCatalog;
+	}
+
+	public Bachelor getBachelor() {
+		return bachelor;
+	}
+
+	public void setBachelor(Bachelor bachelor) {
+		this.bachelor = bachelor;
+	}
+
+	public Master getMaster() {
+		return master;
+	}
+
+	public void setMaster(Master master) {
+		this.master = master;
 	}
 }

@@ -14,7 +14,6 @@ import HivemindsBackend.CourseProperties.OldExam;
 public class User {
 	private String hashcode;
 	private String githubAccount;
-	private UniCatalog uniCatalog;
 	private String OverLeafLink;
 
 	// These fields might already be contained in a uni catalog (hence might be

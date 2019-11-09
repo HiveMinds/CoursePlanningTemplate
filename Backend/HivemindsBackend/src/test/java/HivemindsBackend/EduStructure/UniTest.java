@@ -30,7 +30,6 @@ public class UniTest {
 		assertEquals(0, uni.getFacultyCatalog().size());
 	}
 
-	
 
 	@Test
 	public void testSetFacultyCatalog() {
