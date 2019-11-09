@@ -1,7 +1,7 @@
 package HivemindsBackend.EduStructure;
 
 public class Uni {
-	private String name;
+	private String uniName;
 	private FacultyCatalog facultyCatalog;
 
 	/**
@@ -11,16 +11,16 @@ public class Uni {
 	 * 
 	 * @param name
 	 */
-	Uni(String name) {
-		this.name = name;
+	public Uni(String uniName) {
+		this.uniName = uniName;
 	}
 
-	public String getName() {
-		return name;
+	public String getUniName() {
+		return uniName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUniName(String uniName) {
+		this.uniName = uniName;
 	}
 
 	public FacultyCatalog getFacultyCatalog() {
