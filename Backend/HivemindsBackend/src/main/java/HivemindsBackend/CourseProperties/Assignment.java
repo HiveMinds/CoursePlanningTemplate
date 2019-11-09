@@ -2,7 +2,9 @@ package HivemindsBackend.CourseProperties;
 
 import java.time.LocalDate;
 
-public class Assignment {
+import HivemindsBackend.EduStructure.Course;
+
+public class Assignment extends Course {
 	String nr;
 	boolean inCal;
 	boolean inTw;
@@ -13,7 +15,10 @@ public class Assignment {
 	Double weight;
 	String sourceOfWeight;
 
-	public Assignment(String topic, LocalDate dueDate, String sourceOfDueDate, Double weight, String sourceOfWeight) {
+	public Assignment(String uniName, String facultyName, boolean isBachelor, String programName, String courseName,
+
+			String topic, LocalDate dueDate, String sourceOfDueDate, Double weight, String sourceOfWeight) {
+		super(uniName, facultyName, isBachelor, programName, courseName);
 		this.topic = topic;
 		this.dueDate = dueDate;
 		this.sourceOfDueDate = sourceOfDueDate;
@@ -91,5 +96,5 @@ public class Assignment {
 
 	public void setSourceOfWeight(String sourceOfWeight) {
 		this.sourceOfWeight = sourceOfWeight;
-	}	
+	}
 }

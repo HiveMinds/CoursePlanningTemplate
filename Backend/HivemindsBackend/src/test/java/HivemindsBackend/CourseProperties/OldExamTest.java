@@ -51,7 +51,6 @@ public class OldExamTest {
 				allocatedHash, hasSolutionsWritten, language);
 		examQuestions.add(examQuestion);
 
-
 		OldExam oldExam = new OldExam(uniName, facultyName, isBachelor, programName, courseName, oldExamSource,
 				oldExamDate, nrOfQuestions, examQuestions);
 

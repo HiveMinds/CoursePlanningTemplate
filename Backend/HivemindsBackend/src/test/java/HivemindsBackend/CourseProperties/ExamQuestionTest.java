@@ -50,7 +50,6 @@ public class ExamQuestionTest {
 				allocatedHash, hasSolutionsWritten, language);
 		examQuestions.add(examQuestion);
 
-
 		OldExam oldExam = new OldExam(uniName, facultyName, isBachelor, programName, courseName, oldExamSource,
 				oldExamDate, nrOfQuestions, examQuestions);
 
@@ -58,9 +57,9 @@ public class ExamQuestionTest {
 		uni.getFacultyCatalog().add(faculty);
 		uni.getFacultyCatalog().get(0).getBachelorCatalog().add(bachelor);
 		uni.getFacultyCatalog().get(0).getBachelorCatalog().get(0).getCourseCatalog().add(course);
- 
-		 assertEquals(questionTopic,examQuestion.getQuestionTopic());
-		 assertEquals(questionDueDate ,examQuestion.getQuestionDueDate());
+
+		assertEquals(questionTopic, examQuestion.getQuestionTopic());
+		assertEquals(questionDueDate, examQuestion.getQuestionDueDate());
 	}
 
 }

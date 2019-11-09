@@ -2,7 +2,9 @@ package HivemindsBackend.CourseProperties;
 
 import java.time.LocalDate;
 
-public class StudyMaterial {
+import HivemindsBackend.EduStructure.Course;
+
+public class StudyMaterial extends Course {
 	private int studyMaterialNr;
 	private boolean inCal;
 	private boolean inTw;
@@ -11,7 +13,10 @@ public class StudyMaterial {
 	private String lectureTopic;
 	private LocalDate studyMaterialDueDate;
 
-	public StudyMaterial(String topic, String lectureTopic, LocalDate studyMaterialDueDate) {
+	public StudyMaterial(String uniName, String facultyName, boolean isBachelor, String programName, String courseName,
+
+			String topic, String lectureTopic, LocalDate studyMaterialDueDate) {
+		super(uniName, facultyName, isBachelor, programName, courseName);
 		this.topic = topic;
 		this.lectureTopic = lectureTopic;
 		this.studyMaterialDueDate = studyMaterialDueDate;
