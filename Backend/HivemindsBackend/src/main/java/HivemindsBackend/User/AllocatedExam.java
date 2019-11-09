@@ -1,16 +1,16 @@
-package HivemindsBackend.CourseProperties;
+package HivemindsBackend.User;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class OldExam {
+public class AllocatedExam {
 	private String oldExamSource;
 	private int oldExamNr;
 	private LocalDate oldExamDate;
 	private int nrOfQuestions;
 	private ArrayList<ExamQuestion> oldExamQuestions;
 
-	public OldExam(String oldExamSource, LocalDate oldExamDate, int nrOfQuestions,
+	public AllocatedExam(String oldExamSource, LocalDate oldExamDate, int nrOfQuestions,
 			ArrayList<ExamQuestion> oldExamQuestions) {
 		this.oldExamSource = oldExamSource;
 		this.oldExamDate = oldExamDate;

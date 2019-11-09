@@ -1,4 +1,4 @@
-package HivemindsBackend.EduStructure;
+package HivemindsBackend.User;
 
 import HivemindsBackend.CourseProperties.AssignmentCatalog;
 import HivemindsBackend.CourseProperties.ExerciseCatalog;
@@ -6,7 +6,7 @@ import HivemindsBackend.CourseProperties.LectureCatalog;
 import HivemindsBackend.CourseProperties.OldExamCatalog;
 import HivemindsBackend.CourseProperties.StudyMaterialCatalog;
 
-public class Course {
+public class UserCourse {
 	private String name;
 	private AssignmentCatalog assignmentCatalog;
 	private ExerciseCatalog exerciseCatalog;
@@ -14,7 +14,7 @@ public class Course {
 	private OldExamCatalog oldExamCatalog;
 	private StudyMaterialCatalog studyMaterialCatalog;
 
-	public Course(String name) {
+	public UserCourse(String name) {
 		this.name = name;
 	}
 
