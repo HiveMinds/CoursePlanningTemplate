@@ -2,28 +2,31 @@ package HivemindsBackend.EduStructure;
 
 import java.util.ArrayList;
 
-public class Master {
-	private String name;
-	ArrayList<CourseCatalog> courseCatalog;
+public class Master  extends Faculty{
+	private String masterName;
+	ArrayList<Course> courseCatalog;
 
-	public Master(String name) {
-		this.name = name;
-		courseCatalog = new ArrayList<CourseCatalog>();
+	public Master(String uniName, 
+			String facultyName, 
+			String masterName){
+		super(uniName,facultyName);
+		this.masterName= masterName;
+		courseCatalog = new ArrayList<Course>();
 	}
 
-	public String getName() {
-		return name;
+	public String getMasterName() {
+		return masterName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setMasterName(String masterName) {
+		this.masterName = masterName;
 	}
 
-	public ArrayList<CourseCatalog> getCourseCatalog() {
+	public ArrayList<Course> getCourseCatalog() {
 		return courseCatalog;
 	}
 
-	public void setCourseCatalog(ArrayList<CourseCatalog> courseCatalog) {
+	public void setCourseCatalog(ArrayList<Course> courseCatalog) {
 		this.courseCatalog = courseCatalog;
 	}
 	

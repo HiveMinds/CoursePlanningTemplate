@@ -30,16 +30,7 @@ public class UniTest {
 		assertEquals(0, uni.getFacultyCatalog().size());
 	}
 
-	@Test
-	public void testGetFacultyCatalog1() {
-		String uniName = "Delft";
-		String facultyName = "Aerospace Engingeering";
-		Uni uni = new Uni(uniName);
-		Faculty faculty = new Faculty(uniName,facultyName);
-		uni.getFacultyCatalog().add(faculty);
-		
-		assertEquals(facultyName, uni.getFacultyCatalog().get(0).getFacultyName());
-	}
+	
 
 	@Test
 	public void testSetFacultyCatalog() {
