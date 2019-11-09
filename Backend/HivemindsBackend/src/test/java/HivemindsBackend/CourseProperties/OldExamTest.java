@@ -15,9 +15,6 @@ import HivemindsBackend.EduStructure.Uni;
 
 public class OldExamTest {
 
-
-
-	
 	@Test
 	public void testInitializeOldExam() {
 		String uniName = "Delft";
@@ -27,41 +24,45 @@ public class OldExamTest {
 		String courseName = "Aerodynamics";
 
 		// fill exam data
-		 String oldExamSource = "Brightspace";
-		 LocalDate oldExamDate =LocalDate.parse("2013-01-31");;
-		 int nrOfQuestions = 1;
-		
+		String oldExamSource = "Brightspace";
+		LocalDate oldExamDate = LocalDate.parse("2013-01-31");
+		;
+		int nrOfQuestions = 1;
+
 		// fill exam question data
 		int questionNr = 1;
-		 String questionTopic = "test question topic";
-		 String correspondingLectureTopic = "test lecture topic";
-		 LocalDate questionDueDate = LocalDate.parse("2019-04-23");
-		 boolean isAllocated = false;
-		 String allocatedHash ="abc";
-		 boolean hasSolutionsWritten = false;
-		 String language = "Eng";
-		 ArrayList<ExamQuestion> examQuestions = new ArrayList<ExamQuestion>();
-		
+		String questionTopic = "test question topic";
+		String correspondingLectureTopic = "test lecture topic";
+		LocalDate questionDueDate = LocalDate.parse("2019-04-23");
+		boolean isAllocated = false;
+		String allocatedHash = "abc";
+		boolean hasSolutionsWritten = false;
+		String language = "Eng";
+		ArrayList<ExamQuestion> examQuestions = new ArrayList<ExamQuestion>();
+
 		// create separate objects
 		Uni uni = new Uni(uniName);
 		Faculty faculty = new Faculty(uniName, facultyName);
 		Bachelor bachelor = new Bachelor(uniName, facultyName, programName);
 		Course course = new Course(uniName, facultyName, true, programName, courseName);
-		ExamQuestion examQuestion = new ExamQuestion(questionNr, questionTopic, questionDueDate, allocatedHash,
-				hasSolutionsWritten, language);
+
+		ExamQuestion examQuestion = new ExamQuestion(uniName, facultyName, isBachelor, programName, courseName,
+				oldExamSource, oldExamDate, nrOfQuestions, examQuestions, questionNr, questionTopic, questionDueDate,
+				allocatedHash, hasSolutionsWritten, language);
 		examQuestions.add(examQuestion);
-		
-		
-		OldExam oldExam = new OldExam(uniName, facultyName, isBachelor, programName, courseName,oldExamSource, oldExamDate, nrOfQuestions, examQuestions); 
-		
+
+
+		OldExam oldExam = new OldExam(uniName, facultyName, isBachelor, programName, courseName, oldExamSource,
+				oldExamDate, nrOfQuestions, examQuestions);
+
 		// integrate objects
 		uni.getFacultyCatalog().add(faculty);
 		uni.getFacultyCatalog().get(0).getBachelorCatalog().add(bachelor);
 		uni.getFacultyCatalog().get(0).getBachelorCatalog().get(0).getCourseCatalog().add(course);
 
 		System.out.println(oldExam.getOldExamSource());
-		
-		assertEquals(uniName,oldExam.getUniName());
+
+		assertEquals(uniName, oldExam.getUniName());
 		assertEquals(questionTopic, oldExam.getOldExamQuestions().get(0).getQuestionTopic());
 	}
 }

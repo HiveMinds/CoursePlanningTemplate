@@ -1,8 +1,9 @@
 package HivemindsBackend.CourseProperties;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
-public class ExamQuestion {
+public class ExamQuestion extends OldExam {
 	private int questionNr;
 	private String questionTopic;
 	private String correspondingLectureTopic;
@@ -12,8 +13,14 @@ public class ExamQuestion {
 	private boolean hasSolutionsWritten;
 	private String language;
 
-	public ExamQuestion(int questionNr, String questionTopic, LocalDate questionDueDate, String allocatedHash,
+	public ExamQuestion(String uniName, String facultyName, boolean isBachelor, String programName, String courseName,
+			String oldExamSource, LocalDate oldExamDate, int nrOfQuestions, ArrayList<ExamQuestion> oldExamQuestions,
+			int questionNr, String questionTopic, LocalDate questionDueDate, String allocatedHash,
 			boolean hasSolutionsWritten, String language) {
+
+		super(uniName, facultyName, isBachelor, programName, courseName, oldExamSource, oldExamDate, nrOfQuestions,
+				oldExamQuestions);
+
 		this.questionNr = questionNr;
 		this.questionTopic = questionTopic;
 		this.questionDueDate = questionDueDate;
