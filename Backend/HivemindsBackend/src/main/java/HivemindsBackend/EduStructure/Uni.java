@@ -1,8 +1,10 @@
 package HivemindsBackend.EduStructure;
 
+import java.util.ArrayList;
+
 public class Uni {
 	private String uniName;
-	private FacultyCatalog facultyCatalog;
+	private ArrayList<Faculty> facultyCatalog;
 
 	/**
 	 * Constructor for a university that has multiple faculties with separate
@@ -13,6 +15,7 @@ public class Uni {
 	 */
 	public Uni(String uniName) {
 		this.uniName = uniName;
+		this.facultyCatalog = new ArrayList<Faculty>();
 	}
 
 	public String getUniName() {
@@ -23,11 +26,11 @@ public class Uni {
 		this.uniName = uniName;
 	}
 
-	public FacultyCatalog getFacultyCatalog() {
+	public ArrayList<Faculty> getFacultyCatalog() {
 		return facultyCatalog;
 	}
 
-	public void setFacultyCatalog(FacultyCatalog facultyCatalog) {
+	public void setFacultyCatalog(ArrayList<Faculty> facultyCatalog) {
 		this.facultyCatalog = facultyCatalog;
 	}
 

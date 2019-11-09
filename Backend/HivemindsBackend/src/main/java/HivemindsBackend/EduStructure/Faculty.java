@@ -5,7 +5,9 @@ public class Faculty extends Uni{
 	private BachelorCatalog bachelorCatalog;
 	private MasterCatalog masterCatalog;
 	
-	Faculty(String uniName, String facultyName) {
+	Faculty(String uniName, 
+			String facultyName) {
+		
 		super(uniName);
 		this.facultyName = facultyName;
 	}

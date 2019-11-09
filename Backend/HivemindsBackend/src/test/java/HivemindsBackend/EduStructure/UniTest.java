@@ -12,7 +12,7 @@ public class UniTest {
 	public void testGetUniName() {
 		String uniName = "Delft";
 		Uni uni = new Uni(uniName);
-		assertEquals(uniName,uni.getUniName());
+		assertEquals(uniName, uni.getUniName());
 	}
 
 	@Test
@@ -20,9 +20,25 @@ public class UniTest {
 		fail("Not yet implemented");
 	}
 
+	/**
+	 * Test if returns null if the faculty catalog is not set.
+	 */
 	@Test
 	public void testGetFacultyCatalog() {
-		fail("Not yet implemented");
+		String uniName = "Delft";
+		Uni uni = new Uni(uniName);
+		assertEquals(0, uni.getFacultyCatalog().size());
+	}
+
+	@Test
+	public void testGetFacultyCatalog1() {
+		String uniName = "Delft";
+		String facultyName = "Aerospace Engingeering";
+		Uni uni = new Uni(uniName);
+		Faculty faculty = new Faculty(uniName,facultyName);
+		uni.getFacultyCatalog().add(faculty);
+		
+		assertEquals(facultyName, uni.getFacultyCatalog().get(0).getFacultyName());
 	}
 
 	@Test
