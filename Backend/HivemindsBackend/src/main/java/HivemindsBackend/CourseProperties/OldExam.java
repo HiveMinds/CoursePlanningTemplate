@@ -9,6 +9,12 @@ public class OldExam extends Course {
 	private String oldExamSource;
 	private int oldExamNr;
 	private LocalDate oldExamDate;
+	private String hashFirstReviewer;
+	private boolean firstReviewCompleted;
+	private LocalDate firstReviewDueDate;
+	private String hashSecondReviewer;
+	private boolean SecondReviewCompleted;
+	private LocalDate secondReviewDueDate;
 	private int nrOfQuestions;
 	private ArrayList<ExamQuestion> oldExamQuestions;
 
@@ -60,6 +66,54 @@ public class OldExam extends Course {
 
 	public void setOldExamQuestions(ArrayList<ExamQuestion> oldExamQuestions) {
 		this.oldExamQuestions = oldExamQuestions;
+	}
+
+	public String getHashFirstReviewer() {
+		return hashFirstReviewer;
+	}
+
+	public void setHashFirstReviewer(String hashFirstReviewer) {
+		this.hashFirstReviewer = hashFirstReviewer;
+	}
+
+	public boolean isFirstReviewCompleted() {
+		return firstReviewCompleted;
+	}
+
+	public void setFirstReviewCompleted(boolean firstReviewCompleted) {
+		this.firstReviewCompleted = firstReviewCompleted;
+	}
+
+	public LocalDate getFirstReviewDueDate() {
+		return firstReviewDueDate;
+	}
+
+	public void setFirstReviewDueDate(LocalDate firstReviewDueDate) {
+		this.firstReviewDueDate = firstReviewDueDate;
+	}
+
+	public String getHashSecondReviewer() {
+		return hashSecondReviewer;
+	}
+
+	public void setHashSecondReviewer(String hashSecondReviewer) {
+		this.hashSecondReviewer = hashSecondReviewer;
+	}
+
+	public boolean isSecondReviewCompleted() {
+		return SecondReviewCompleted;
+	}
+
+	public void setSecondReviewCompleted(boolean secondReviewCompleted) {
+		SecondReviewCompleted = secondReviewCompleted;
+	}
+
+	public LocalDate getSecondReviewDueDate() {
+		return secondReviewDueDate;
+	}
+
+	public void setSecondReviewDueDate(LocalDate secondReviewDueDate) {
+		this.secondReviewDueDate = secondReviewDueDate;
 	}
 
 }
