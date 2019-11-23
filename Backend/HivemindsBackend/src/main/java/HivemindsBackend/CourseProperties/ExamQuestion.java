@@ -11,6 +11,7 @@ public class ExamQuestion extends OldExam {
 	private boolean isAllocated;
 	private String allocatedHash;
 	private boolean hasSolutionsWritten;
+	// TODO: Include review one and two 
 	private String language;
 
 	public ExamQuestion(String uniName, String facultyName, boolean isBachelor, String programName, String courseName,
