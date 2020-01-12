@@ -1,4 +1,4 @@
-# AE4870A-Rocket-Motion Content:
+# Repository Content:
 
 1. The complete course planning. (It automatically compiles a pdf with the planning, and more importantly, it automatically generates all the taskwarrior commands to add your tasks to your tasklist (taskwarrior).)
 2. Old exam solutions templates, the actual solutions are in a private repo shared with collaborators.test
