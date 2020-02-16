@@ -1,0 +1,7 @@
+Source: https://www.experts-exchange.com/questions/21844639/Run-external-bas-modules-in-VBA.html 
+(This is most likely code for a `.vbs` script)
+
+Dim myVBComponent As Object
+Set myVBComponent = VBE.ActiveVBProject.VBComponents.Import("X:\Path\Filename.bas")
+Application.Run "Main"
+VBE.ActiveVBProject.VBComponents.Remove myVBComponent
