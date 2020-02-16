@@ -12,5 +12,5 @@
 *.synctex.gz
 *.dvi
 
-*.csv
-*.txt
+/CoursePlanningTemplate/CoursePlanningTemplate/processPlanning/CsvTasks/*.csv
+/CoursePlanningTemplate/CoursePlanningTemplate/processPlanning/CsvTasks/*.txt
