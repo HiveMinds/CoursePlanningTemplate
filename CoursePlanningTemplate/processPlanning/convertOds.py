@@ -12,7 +12,7 @@
 import pyexcel
 import glob
 import os
-
+import subprocess
 
 def convert_to_xlxs():
     os.chdir(".")
@@ -59,3 +59,5 @@ convert_to_xlxs()
 print("Converted .ods to .xlxs in parentfolder.")
 run_excel_module_from_python()
 print("Completed evaluation of excel subroutine")
+subprocess.call("cscript CsvTasks/readCSV.vbs") # works
+print("Created taskwarrior commands.")
