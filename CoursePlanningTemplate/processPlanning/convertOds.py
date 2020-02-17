@@ -1,4 +1,11 @@
-# prerequisites: requires python 3.x (or higher)
+# prerequisites: 
+# 0. requires python 3.x (or higher)
+# 1. Depending on locations might require long path enabled for win32: 
+# 1.1 Press: start>Type: run>Type: gpedit.msc <enter>>Go to: Computer Configuration\Administrative Templates\System\Filesystem
+# 1.2 And enable: "Enable Win32 long paths".
+# 2. Then also enable long paths in regedit:
+# 2.1 Press: start>Type: regedit<enter>>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem
+# 2.2 And enable: LongPathsEnabled
 # open cmd
 # browse to this directory
 # install pyexcel with:
