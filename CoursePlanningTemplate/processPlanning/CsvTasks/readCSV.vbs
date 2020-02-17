@@ -89,7 +89,7 @@ Function createCsvFiles(filename,scriptDir)
 	  lines.add(arrStr)
 	'  arrStr is now an array of the line with in each element a comma separated value.
 	Loop
-
+	
 	' generate task add commands
 	Set commands = CreateObject("System.Collections.ArrayList")
 	
@@ -129,11 +129,20 @@ Function createCsvFiles(filename,scriptDir)
 				commands.add("task add due:"+lines.Item(i)(0)+" proj:"+twProjectCode+".exam"+" "+" make exam at location="+lines.Item(i)(1)+" weight="+lines.Item(i)(3)+" duration="+lines.Item(i)(2))
 				commands.add("task add due:"+getExamRegistryDate(lines.Item(i)(0))+" priority:H proj:"+twProjectCode+".exam"+" "+"REGISTER FOR THIS EXAM")				
 			Next
-	
+			
+			'msgbox("command = "+commands(0))
 		   'msgbox("Match hi")
 		case else
 		   'msgbox(fileName +"not terminated")
 	 End select
+	
+	' replace characters that have tw command meanings
+	For i = 0 To commands.count -1
+		commands(i) = Replace(commands(i),"(","_")
+		commands(i) = Replace(commands(i),")","_")
+		commands(i) = Replace(commands(i),"+"," and ")
+		commands(i) = Replace(commands(i),"&","and")
+	Next
 
 	objTextFile.Close
 	set objTextFile = Nothing
@@ -150,7 +159,7 @@ Function getExamRegistryDate(examDate)
 		If (Mid(examDate, 6, 2)= "01") Then
 			getExamRegistryDate=Left(examDate, 2)+cStr(Mid(examDate,3,2)-1)+"-11-"+cStr(28+Mid(examDate, 9, 2)-15)
 		Else
-			msgbox("setting:"+Left(examDate, 5)+cStr(Mid(examDate,6,2)-1)+"-"+cStr(28+Mid(examDate, 9, 2)-15))
+			msgbox("Setting the following exam registration date (should be yyyy-mm-dd, not yyyy-m-d):"+Left(examDate, 5)+cStr(Mid(examDate,6,2)-1)+"-"+cStr(28+Mid(examDate, 9, 2)-15))
 			getExamRegistryDate=Left(examDate, 8)+cStr(28+Mid(examDate, 9, 2)-15)
 		End If 
 	End If 

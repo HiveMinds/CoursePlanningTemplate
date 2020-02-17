@@ -1,11 +1,4 @@
-# prerequisites: 
-# 0. requires python 3.x (or higher)
-# 1. Depending on locations might require long path enabled for win32: 
-# 1.1 Press: start>Type: run>Type: gpedit.msc <enter>>Go to: Computer Configuration\Administrative Templates\System\Filesystem
-# 1.2 And enable: "Enable Win32 long paths".
-# 2. Then also enable long paths in regedit:
-# 2.1 Press: start>Type: regedit<enter>>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem
-# 2.2 And enable: LongPathsEnabled
+# prerequisites: requires python 3.x (or higher)
 # open cmd
 # browse to this directory
 # install pyexcel with:
@@ -20,6 +13,7 @@ import pyexcel
 import glob
 import os
 import subprocess
+excel_name = "doPlannings.xlsm"
 
 def convert_to_xlxs():
     os.chdir(".")
@@ -38,33 +32,35 @@ def convert_to_xlxs():
         #print(sheet)
         sheet.save_as(file + '.xlsx')
 
-def run_excel_module_from_python():
+def run_excel_module_from_python(excel_name):
     import os, os.path
     import win32com.client
 
-    if os.path.exists("GenerateTwCommandsAndLatexTemplates.xlsm"):
+    if os.path.exists(excel_name+""):
         xl=win32com.client.Dispatch("Excel.Application")
-        xl.Workbooks.Open(os.path.abspath("GenerateTwCommandsAndLatexTemplates.xlsm"), ReadOnly=1)
-        xl.Application.Run("GenerateTwCommandsAndLatexTemplates.xlsm!Module1.main")
+        xl.Workbooks.Open(os.path.abspath(excel_name+""), ReadOnly=1)
+        xl.Application.Run(excel_name+"!Module1.main")
         ##    xl.Application.Save() # if you want to save then uncomment this line and change delete the ", ReadOnly=1" part from the open function.
         xl.Application.Quit() # Comment this out if your excel script closes
         del xl
 
-def create_latex_exam_solution_templates():
+def create_latex_exam_solution_templates(excel_name):
     import os, os.path
     import win32com.client
 
-    if os.path.exists("GenerateTwCommandsAndLatexTemplates.xlsm"):
+    if os.path.exists(excel_name+""):
         xl=win32com.client.Dispatch("Excel.Application")
-        xl.Workbooks.Open(os.path.abspath("GenerateTwCommandsAndLatexTemplates.xlsm"), ReadOnly=1)
-        xl.Application.Run("GenerateTwCommandsAndLatexTemplates.xlsm!Module2.createExamSolutionTemplates")
+        xl.Workbooks.Open(os.path.abspath(excel_name+""), ReadOnly=1)
+        xl.Application.Run(excel_name+"!Module2.createExamSolutionTemplates")
         ##    xl.Application.Save() # if you want to save then uncomment this line and change delete the ", ReadOnly=1" part from the open function.
         xl.Application.Quit() # Comment this out if your excel script closes
         del xl
 
 convert_to_xlxs()
 print("Converted .ods to .xlxs in parentfolder.")
-run_excel_module_from_python()
+run_excel_module_from_python(excel_name)
+print("Completed generation of task csvs.")
+create_latex_exam_solution_templates(excel_name)
 print("Completed evaluation of excel subroutine")
 subprocess.call("cscript CsvTasks/readCSV.vbs") # works
 print("Created taskwarrior commands.")
