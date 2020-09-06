@@ -215,3 +215,11 @@ To change (a copy of) this a latex exam solution template after you have install
    7.b Import your forked repository to overleaf (get a temporary free trial acount with ggr.la mail.
   
    7.c Import your forked repository to overleaf by pressing: menu>new>import zip file> put your 2010-xx-yy folder Content into a zip, and click import. Then you can just work in overleaf.
+
+
+### Unlock the .ods file:
+0. Tools>Share Spreadsheet>Uncheck: "Share this spreadsheet with others" (this ungrays out the `tools>protect sheet` and `tools>protect spreadsheet` options.)
+0. Or (`Alt+t>Alt+h>Alt+s`)
+1. Click `Tools>protect sheet` or `tools>protect spreadsheet` to protect/unprotect entire spreadsheet.
+2. Or (`Alt+t>Alt+s>enter`) or (`Alt+t>Alt+s>enter`)
+2. Enter password>enter
