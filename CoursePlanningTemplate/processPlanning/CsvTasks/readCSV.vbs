@@ -99,35 +99,35 @@ Function createCsvFiles(filename,scriptDir)
 		case "assignments.csv"
 			'msgbox("found case for assignments.csv")
 			For i = 0 To lines.count -1
-				commands.add("task add due:"+lines.Item(i)(5)+" proj:"+twProjectCode+".as."+getProjWeek(lines.Item(i)(0))+" make "+lines.Item(i)(0)+lines.Item(i)(3)+" Weight:"+lines.Item(i)(7)+" priority:H")
+				commands.add("task add due:"+changeDueFormat(lines.Item(i)(5))+" proj:"+twProjectCode+".as."+getProjWeek(lines.Item(i)(0))+" make "+lines.Item(i)(0)+lines.Item(i)(3)+" Weight:"+lines.Item(i)(7)+" priority:H")
 			
 			Next
 		case "oldExams.csv"
 			For i = 0 To lines.count -1
 				'Source	Nr	Date	Nr of Exercises	Exerc. Id	Weight	Topic	Lect. Topic	Due
 				'0		1	2		3				4			5		6		7	  	 	8
-				commands.add("task add due:"+lines.Item(i)(8)+ " priority:H"+" proj:"+twProjectCode+".OldEx"+" "+lines.Item(i)(0)+" exam nr="+lines.Item(i)(1)+" exam date="+lines.Item(i)(2)+" exercise "+lines.Item(i)(3)+"-"+lines.Item(i)(4)+" weight="+lines.Item(i)(5)+" topic="+lines.Item(i)(6)+" lect.topic="+lines.Item(i)(7))'msgbox(commands(i))
+				commands.add("task add due:"+changeDueFormat(lines.Item(i)(8))+ " priority:H"+" proj:"+twProjectCode+".OldEx"+" "+lines.Item(i)(0)+" exam nr="+lines.Item(i)(1)+" exam date="+lines.Item(i)(2)+" exercise "+lines.Item(i)(3)+"-"+lines.Item(i)(4)+" weight="+lines.Item(i)(5)+" topic="+lines.Item(i)(6)+" lect.topic="+lines.Item(i)(7))'msgbox(commands(i))
 			Next
 			
 		case "exercises.csv"
 			For i = 0 To lines.count -1
 				'Nr	Cal	Tw	Available	Topic	Lecture topic	Due date
 				'0	1	2	3			4		5				6
-				commands.add("task add due:"+lines.Item(i)(6)+" proj:"+twProjectCode+".exer"+" "+" exercise nr="+lines.Item(i)(0)+" topic="+lines.Item(i)(4)+" lect.topic="+lines.Item(i)(5))
+				commands.add("task add due:"+changeDueFormat(lines.Item(i)(6))+" proj:"+twProjectCode+".exer"+" "+" exercise nr="+lines.Item(i)(0)+" topic="+lines.Item(i)(4)+" lect.topic="+lines.Item(i)(5))
 			Next
 		
 		case "studyMaterial.csv"
 			For i = 0 To lines.count -1
 				'Nr	Cal	Tw	Available	Topic	Lecture topic	Due date
 				'0	1	2	3			4		5				6
-				commands.add("task add due:"+lines.Item(i)(6)+" proj:"+twProjectCode+".exer"+" "+" exercise nr="+lines.Item(i)(0)+" topic="+lines.Item(i)(4)+" lect.topic="+lines.Item(i)(5))
+				commands.add("task add due:"+changeDueFormat(lines.Item(i)(6))+" proj:"+twProjectCode+".exer"+" "+" exercise nr="+lines.Item(i)(0)+" topic="+lines.Item(i)(4)+" lect.topic="+lines.Item(i)(5))
 			Next		
 		case "exam.csv"
 			For i = 0 To lines.count -1
 				'date		Location	duration	weight
 				'0			1			2			3
-				commands.add("task add due:"+lines.Item(i)(0)+" proj:"+twProjectCode+".exam"+" "+" make exam at location="+lines.Item(i)(1)+" weight="+lines.Item(i)(3)+" duration="+lines.Item(i)(2))
-				commands.add("task add due:"+getExamRegistryDate(lines.Item(i)(0))+" priority:H proj:"+twProjectCode+".exam"+" "+"REGISTER FOR THIS EXAM")				
+				commands.add("task add due:"+changeDueFormat(lines.Item(i)(0))+" proj:"+twProjectCode+".exam"+" "+" make exam at location="+lines.Item(i)(1)+" weight="+lines.Item(i)(3)+" duration="+lines.Item(i)(2))
+				commands.add("task add due:"+changeDueFormat(getExamRegistryDate(lines.Item(i)(0)))+" priority:H proj:"+twProjectCode+".exam"+" "+"REGISTER FOR THIS EXAM")				
 			Next
 			
 			'msgbox("command = "+commands(0))
@@ -166,7 +166,16 @@ Function getExamRegistryDate(examDate)
 
 End Function
 
-
+' modify date time format from yyyy-mm-dd hh:mm to: yyyy-mm-dd hh:mm
+Function changeDueFormat(duetime)
+	Dim returning 
+	'msgbox("Incoming due date time="+duetime)
+	returning = Replace(duetime," 0","T0")
+	returning = Replace(returning," 1","T1")
+	returning = Replace(returning," 2","T2")
+	'msgbox("Outgoing due date time="+returning)
+	changeDueFormat = returning
+End Function
 
 
 ' Get the week number so that it can be added to the end of the project
