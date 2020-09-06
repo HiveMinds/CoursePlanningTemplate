@@ -9,16 +9,16 @@ What you get:
 What someone needs to do:
 	1. Open the `CoursePlanningTemplate/PlanningData-Form-Temp.ods` and fill in all the sheets. (This is the hard work, you have to meticulously scan the entire brightspace page, course guide and spam the teacher if any data is missing (such as when an assignment is due) or what the weight of an assignment is. The software needs to know all that stuff at the start of the course, and for you to be able to make a proper and complete planning you need that information as well.)
 	2. To run the python script, you need to install the following modules/packages in anaconda prompt (or whatever your python software is):
-	```
-python -m pip install pyexcel
-python -m pip install pyexcel-xlsx
-python -m pip install pyexcel-ods3
-```
+		```
+		python -m pip install pyexcel
+		python -m pip install pyexcel-xlsx
+		python -m pip install pyexcel-ods3
+		```
 	3. browse to the directory `CoursePlanningTemplate/processPlanning/` using the `change directory` command: `cd "<this path>"`.
 	4. run the python script `python convertOds.py` in Anaconda prompt with command:
-```
-python convertOds.py
-```
+		```
+		python convertOds.py
+		```
 	5. Thats it now you have the taskwarrior commands in folder: `CoursePlanningTemplate/processPlanning/CsvTasks/taskwarriorCommands.txt`
 	6. The exam solution templates are in: `/ExamSolutions/`. To edit them in Overleaf just click "Fork(=difficult word for copy to your own github account)" on this repository and in overleaf click `new project>import from github>Then select your fork(=copy) of this repository`.
 	
