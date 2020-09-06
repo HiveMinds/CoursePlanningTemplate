@@ -1,12 +1,11 @@
 # prerequisites: requires python 3.x (or higher)
-# open cmd
+# open anaconda prompt
 # browse to this directory
 # install pyexcel with:
 # python -m pip install pyexcel
-# python -m pip install pyexcel-ods (outdated)
-# python -m pip install pyexcel-ods3 (outdated)
 # python -m pip install pyexcel-xlsx
-# python -m pip install pyexcel-xlsxw (ignored)
+# python -m pip install pyexcel-ods3
+
 # run this script with:
 # python convertOds.py
 import pyexcel
