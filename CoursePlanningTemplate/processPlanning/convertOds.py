@@ -63,28 +63,48 @@ def cleanup():
     temp_xlsx_relative_filepath = "../PlanningData-Form-Temp.ods.xlsx"
     temp_ods_to_xlsx = "../PlanningData-Form.xlsx"
     if os.path.exists(temp_xlsx_relative_filepath):
-        try:
-            os.remove(temp_xlsx_relative_filepath)
-        except OSError:
-            print(f'Could not delete{temp_xlsx_relative_filepath}. Perhaps because it was in use. You can delete it manually to clean up.')
+        delete_file(temp_xlsx_relative_filepath)
     
     if os.path.exists(temp_ods_to_xlsx):
-        try:
-            os.remove(temp_ods_to_xlsx)
-        except OSError:
-            print(f'Could not delete{temp_ods_to_xlsx}. Perhaps because it was in use. You can delete it manually to clean up.')
+        delete_file(temp_ods_to_xlsx)
+        
+            
+def delete_file(path):
+    try:
+        os.remove(path)
+    except OSError:
+        print(f'Could not delete{path}. Perhaps because it was in use. You can delete it manually to clean up.')
 
+def delete_folder(path):
+    try:
+        shutil.rmtree(path)
+    except OSError:
+        print(f'Could not delete{path}. Perhaps because it was in use. You can delete it manually to clean up.')
+
+        
 # To prevent user from filling in xlsx instead of .ods the xls is moved in this folder, but it (currently) is still needed in parent directory
 # so this method exports it to parent directory before code is started
 def move_ods_to_excel_out():
     shutil.copy("ods_to_excel_source.xlsx", "../PlanningData-Form.xlsx")
  
+# deletes old exam solution templates from other courses/past runs
+def remove_old_exam_solution_templates():
+    keep = "Technical Latex Examples"
+    
+    for dirs in os.listdir(f'../../ExamSolutions/'):
+        if os.path.isdir(f'../../ExamSolutions/{dirs}/'):
+            if not dirs==keep:
+                delete_folder(f'../../ExamSolutions/{dirs}/')
+    
     
 # define the main computation xlsm    
 excel_name = "doPlannings.xlsm"
 
 # temporarily move the .xlsx file for planning out    
 move_ods_to_excel_out()
+
+# remove unneeded old exam solution templates
+remove_old_exam_solution_templates()
 
 convert_to_xlxs()
 print("Converted .ods to .xlxs in parentfolder.")
@@ -96,3 +116,5 @@ subprocess.call("cscript CsvTasks/readCSV.vbs") # works
 print("Created taskwarrior commands.")
 cleanup()
 print("Cleaned up temporary files")
+
+print("Your latex exam solution templates are now located in: ../../ExamSolutions/")
