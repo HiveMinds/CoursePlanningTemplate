@@ -55,6 +55,16 @@ def create_latex_exam_solution_templates(excel_name):
         xl.Application.Quit() # Comment this out if your excel script closes
         del xl
 
+# Deletes the generated .ods.xlsx file
+def cleanup():
+    temp_xlsx_relative_filepath = "../PlanningData-Form-Temp.ods.xlsx"
+    if os.path.exists(temp_xlsx_relative_filepath):
+        try:
+            os.remove(temp_xlsx_relative_filepath)
+        except OSError:
+            print(f'Could not delete{temp_xlsx_relative_filepath}. Perhaps because it was in use. You can delete it manually to clean up.')
+        
+
 convert_to_xlxs()
 print("Converted .ods to .xlxs in parentfolder.")
 run_excel_module_from_python(excel_name)
@@ -63,3 +73,5 @@ create_latex_exam_solution_templates(excel_name)
 print("Completed evaluation of excel subroutine")
 subprocess.call("cscript CsvTasks/readCSV.vbs") # works
 print("Created taskwarrior commands.")
+cleanup()
+print("Cleaned up temporary files")
