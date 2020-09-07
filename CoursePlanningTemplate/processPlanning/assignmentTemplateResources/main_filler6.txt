@@ -1,0 +1,6 @@
+\input{Chapters/conclusion.tex} \newpage
+
+\bibliographystyle{plain} %plain style
+\bibliography{references}
+\addcontentsline{toc}{chapter}{Bibliography}
+\end{document}

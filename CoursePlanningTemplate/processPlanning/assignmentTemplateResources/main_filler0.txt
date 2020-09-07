@@ -1,0 +1,25 @@
+\documentclass{article}
+%%%%%%%%%%%%%% Predefined packages%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={175mm,265mm},
+ left=15mm,
+ top=15mm,
+ }
+\usepackage{amsmath}
+\usepackage{cleveref} %cleverref needs to stand below amsmath package.
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{url} %To be able to use url in references
+\usepackage{graphicx}
+\usepackage{tabularx} % in the preamble
+\usepackage{wrapfig}
+\usepackage{lipsum}  %use filler
+
+%%%%%%%%%%%%%% User defined packages%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{
+  	Exam Solution \\
+	\large Course:
