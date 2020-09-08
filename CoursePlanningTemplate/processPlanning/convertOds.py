@@ -100,11 +100,15 @@ def remove_old_solution_templates(solution_type):
 def remove_old_local_solution_templates(solution_type):
     keep = "Technical Latex Examples"
     
-    #if (os.path.exists(f'../../{solution_type}/')):
-    for dirs in os.listdir(f'{solution_type}/'):
-        if os.path.isdir(f'{solution_type}/{dirs}/'):
-            if not dirs==keep:
-                delete_folder(f'{solution_type}/{dirs}/')
+    if (os.path.exists(f'../../{solution_type}/')):
+        for dirs in os.listdir(f'{solution_type}/'):
+            if os.path.isdir(f'{solution_type}/{dirs}/'):
+                if not dirs==keep:
+                    delete_folder(f'{solution_type}/{dirs}/')
+
+def export_templates(solution_type):
+    if (os.path.exists(f'{solution_type}/')):
+        shutil.move(f'{solution_type}/', f'../../{solution_type}/')
     
 # define the main computation xlsm    
 excel_name = "doPlannings.xlsm"
@@ -114,11 +118,18 @@ move_ods_to_excel_out()
 
 # remove unneeded old exam solution templates
 remove_old_solution_templates("ExamSolutions")
+remove_old_solution_templates("individualAssignmentSolutions")
 remove_old_solution_templates("groupAssignmentSolutions")
+remove_old_solution_templates("groupExerciseSolutions")
+remove_old_solution_templates("groupLectureSummaries")
 
 # Remove unneeded old solution templates in this directory
 remove_old_local_solution_templates("ExamSolutions")
+remove_old_local_solution_templates("individualAssignmentSolutions")
 remove_old_local_solution_templates("groupAssignmentSolutions")
+remove_old_local_solution_templates("groupExerciseSolutions")
+remove_old_local_solution_templates("groupLectureSummaries")
+
 
 convert_to_xlxs()
 print("Converted .ods to .xlxs in parentfolder.")
@@ -130,5 +141,13 @@ subprocess.call("cscript CsvTasks/readCSV.vbs") # works
 print("Created taskwarrior commands.")
 cleanup()
 print("Cleaned up temporary files")
+
+
+# Export latex templates to parent directory
+export_templates("ExamSolutions")
+export_templates("individualAssignmentSolutions")
+export_templates("groupAssignmentSolutions")
+export_templates("groupExerciseSolutions")
+export_templates("groupLectureSummaries")
 
 print("Your latex exam solution templates are now located in: ../../ExamSolutions/")
