@@ -88,14 +88,23 @@ def move_ods_to_excel_out():
     shutil.copy("ods_to_excel_source.xlsx", "../PlanningData-Form.xlsx")
  
 # deletes old exam solution templates from other courses/past runs
-def remove_old_exam_solution_templates():
+def remove_old_solution_templates(solution_type):
     keep = "Technical Latex Examples"
     
-    for dirs in os.listdir(f'../../ExamSolutions/'):
-        if os.path.isdir(f'../../ExamSolutions/{dirs}/'):
-            if not dirs==keep:
-                delete_folder(f'../../ExamSolutions/{dirs}/')
+    if (os.path.exists(f'../../{solution_type}/')):
+        for dirs in os.listdir(f'../../{solution_type}/'):
+            if os.path.isdir(f'../../{solution_type}/{dirs}/'):
+                if not dirs==keep:
+                    delete_folder(f'../../{solution_type}/{dirs}/')
+
+def remove_old_local_solution_templates(solution_type):
+    keep = "Technical Latex Examples"
     
+    #if (os.path.exists(f'../../{solution_type}/')):
+    for dirs in os.listdir(f'{solution_type}/'):
+        if os.path.isdir(f'{solution_type}/{dirs}/'):
+            if not dirs==keep:
+                delete_folder(f'{solution_type}/{dirs}/')
     
 # define the main computation xlsm    
 excel_name = "doPlannings.xlsm"
@@ -104,7 +113,12 @@ excel_name = "doPlannings.xlsm"
 move_ods_to_excel_out()
 
 # remove unneeded old exam solution templates
-remove_old_exam_solution_templates()
+remove_old_solution_templates("ExamSolutions")
+remove_old_solution_templates("groupAssignmentSolutions")
+
+# Remove unneeded old solution templates in this directory
+remove_old_local_solution_templates("ExamSolutions")
+remove_old_local_solution_templates("groupAssignmentSolutions")
 
 convert_to_xlxs()
 print("Converted .ods to .xlxs in parentfolder.")
