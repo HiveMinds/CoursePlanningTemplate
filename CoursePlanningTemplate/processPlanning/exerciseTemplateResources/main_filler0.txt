@@ -1,0 +1,137 @@
+\documentclass{article}
+%%%%%%%%%%%%%% Predefined packages%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={175mm,265mm},
+ left=15mm,
+ top=15mm,
+ }
+\usepackage{amsmath}
+\usepackage{cleveref} %cleverref needs to stand below amsmath package.
+
+\usepackage{amsmath} % need to be on top for eps files
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\graphicspath{ {latex/Images/} }
+\usepackage{epstopdf} 
+
+
+\usepackage{float}
+\usepackage{url} %To be able to use url in references
+\usepackage{tabularx} % in the preamble
+\usepackage{wrapfig}
+\usepackage{lipsum}  %use filler
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Start Create listings (Matlab)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Create a matlab listing
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={175mm,265mm},
+ left=15mm,
+ top=15mm,
+ }
+\usepackage{amsmath}%To be able to use split in equation
+
+
+%%%% Include eps files:
+\usepackage{amsmath} % need to be on top for eps files
+\usepackage{graphicx}
+%set the relative location for eps files
+\graphicspath{ {/images/} }
+\usepackage{listings}
+\usepackage{cleveref} %cleverref needs to stand below amsmath package.
+\usepackage{graphicx}
+\usepackage{float}
+%\usepackage{hyperref}
+\usepackage{url} %To be able to use url in references
+\usepackage{graphicx}
+\usepackage{tabularx} % in the preamble
+\usepackage{wrapfig}
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+
+% To get side by side pictures:{
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+
+
+\usepackage{cleveref} %cleverref needs to stand below amsmath package.
+\usepackage{appendix}
+\crefname{appsec}{Appendix}{Appendices} % refer to appendix as appendix iso as section
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% End Create listings (Matlab)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Start Create listings (Python)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Create listings (Python)
+% set code color pattern (for python)
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\usepackage{listings}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+breaklines=true, % wrap lines
+postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}, % wrap lines
+basicstyle=\ttm,
+otherkeywords={self},             % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false            % 
+}}
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+\pythonstyle
+\lstinputlisting[#1]{#2}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% End Create listings (Python)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%% User defined packages%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{
+  	Exercise Solution \\
+	\large Course:

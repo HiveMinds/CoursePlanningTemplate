@@ -1,0 +1,21 @@
+# git files
+/.metadata/
+
+
+*main.aux
+*main.log
+*main.synctex.gz
+*.aux
+*.bbl
+*.blg
+*.log
+*.synctex.gz
+*.dvi
+
+/CoursePlanningTemplate/CoursePlanningTemplate/processPlanning/CsvTasks/*.csv
+/CoursePlanningTemplate/CoursePlanningTemplate/processPlanning/CsvTasks/*.txt
+
+/CoursePlanningTemplate/PlanningData-Form-Temp.ods.xlsx
+
+/groupAssignmentSolutions/*
+/groupExerciseSolutions/*
