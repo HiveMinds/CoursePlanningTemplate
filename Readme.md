@@ -2,6 +2,9 @@
 
 This repository can be used to generate your planning (what will be done and in what order) and a little bit of scheduling (when it needs to be done). On top of that, it is a platform for collaboration on old exam solutions, because in my experience it is too much work to properly solve all old exams of a single course before the exam takes place.
 
+## TL;DR
+Let 1 person per course fill in the sheet and run it. then use [taskwarrior](https://github.com/HiveMinds-EU/tw-install/blob/main/README.md) to sync all course deadlines with your google calendar, and use [Anki](https://github.com/HiveMinds-EU/Memorisation-Anki-course-decks) to collectively build a flashcard database for each course. Also, don't forget to use the latex templates you get to make your assignments, take lecturenotes and build your old-exam solutions together. (This repo is not yet very refined, so please feel free to improve it (e.g. change the VBA code to Python code), and make an Issue if you run into any troubles).
+
 ## Course planning
 
 ### What you get: 
